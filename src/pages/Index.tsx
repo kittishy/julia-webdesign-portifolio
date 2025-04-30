@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import MainLayout from '@/layouts/MainLayout';
 import InteractiveElement from '@/components/InteractiveElement';
+import CharacterCarousel from '@/components/CharacterCarousel';
+import SearchBar from '@/components/SearchBar';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { trackMouseMovement } from '@/utils/mouse-tracking';
 
 const Index = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const heroImgRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   
   // Track scroll progress
   useEffect(() => {
@@ -31,7 +35,7 @@ const Index = () => {
     
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const speed = 0.5;
+      const speed = 0.3;
       
       if (heroImgRef.current) {
         heroImgRef.current.style.transform = `translateY(${scrollY * speed}px)`;
@@ -48,9 +52,9 @@ const Index = () => {
     
     return trackMouseMovement((x, y) => {
       if (heroImgRef.current) {
-        const moveX = (x - 0.5) * 20;
-        const moveY = (y - 0.5) * 20;
-        heroImgRef.current.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.1)`;
+        const moveX = (x - 0.5) * 10;
+        const moveY = (y - 0.5) * 10;
+        heroImgRef.current.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
       }
     });
   }, []);
@@ -67,96 +71,106 @@ const Index = () => {
       {/* Progress bar */}
       <div className="fixed top-0 left-0 w-full h-1 z-50">
         <div 
-          className="h-full bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink"
+          className="h-full bg-gradient-to-r from-primary to-accent"
           style={{ width: `${scrollProgress * 100}%` }}
         />
       </div>
       
       {/* Hero section */}
-      <section ref={heroRef} className="relative h-screen flex items-center overflow-hidden">
+      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-16">
         {/* Background image with parallax */}
         <div 
           ref={heroImgRef}
           className="absolute inset-0 w-full h-[120%] bg-cover bg-center -z-10 transition-transform duration-300"
           style={{ 
-            backgroundImage: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=1920&auto=format&fit=crop)',
             backgroundBlendMode: 'overlay',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)'
+            backgroundColor: 'rgba(255, 255, 255, 0.85)'
           }}
         />
         
         {/* Hero content */}
-        <div className="container mx-auto px-6 lg:px-8">
-          <div 
-            className="max-w-3xl mx-auto text-center"
-            data-aos="fade-up"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-6 neon-text">
-              CINEMATIC VOYAGE
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8">
-              Uma jornada imersiva através de ideias e conceitos criativos
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <InteractiveElement>
-                <Link
-                  to="/journey"
-                  className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors"
-                >
-                  Iniciar Jornada
-                </Link>
-              </InteractiveElement>
-              <InteractiveElement>
-                <Link
-                  to="/portfolio"
-                  className="px-6 py-3 bg-muted/50 text-foreground font-medium rounded-md hover:bg-muted/70 transition-colors"
-                >
-                  Ver Conceitos
-                </Link>
-              </InteractiveElement>
+        <div className="container mx-auto px-6 lg:px-8 py-20">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div 
+              className="max-w-lg mx-auto md:mx-0 text-center md:text-left"
+              data-aos="fade-up"
+            >
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-semibold mb-6 elegant-heading">
+                {t('siteName')}
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground mb-8">
+                {t('siteTagline')}
+              </p>
+              
+              <SearchBar className="mb-8 mx-auto md:mx-0 max-w-md" />
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <InteractiveElement>
+                  <Link
+                    to="/journey"
+                    className="button-primary"
+                  >
+                    {t('startJourney')}
+                  </Link>
+                </InteractiveElement>
+                <InteractiveElement>
+                  <Link
+                    to="/portfolio"
+                    className="button-secondary"
+                  >
+                    {t('viewConcepts')}
+                  </Link>
+                </InteractiveElement>
+              </div>
+            </div>
+            
+            <div className="w-full md:w-1/2 mt-8 md:mt-0">
+              {/* Character carousel will go here */}
+              <CharacterCarousel />
             </div>
           </div>
         </div>
         
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-sm text-muted-foreground">Scroll Down</span>
-          <div className="w-6 h-9 border-2 border-muted-foreground rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-muted-foreground rounded-full mt-2" />
+          <span className="text-sm text-muted-foreground">{t('scrollDown')}</span>
+          <div className="w-6 h-9 border-2 border-muted-foreground/30 rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-muted-foreground/50 rounded-full mt-2" />
           </div>
         </div>
       </section>
       
       {/* Features section */}
-      <section className="section-container">
+      <section className="section-container bg-white/30">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold mb-4 neon-text">
-              EXPERIÊNCIA INTERATIVA
+            <h2 className="text-3xl sm:text-4xl font-montserrat font-semibold mb-4 elegant-heading">
+              {t('interactiveExperience')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore uma experiência digital única e envolvente, com elementos interativos e narrativas visuais.
+              {t('exploreDigitalExperience')}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard
-              title="História Visual"
-              description="Uma narrativa interativa que revela minha jornada de aprendizado e desenvolvimento."
+              title={t('visualStory')}
+              description={t('visualStoryDesc')}
               icon="📚"
               link="/journey"
               delay={0}
             />
             <FeatureCard
-              title="Portfólio Conceitual"
-              description="Explore conceitos e ideias criativas que demonstram meu potencial e visão."
+              title={t('conceptPortfolio')}
+              description={t('conceptPortfolioDesc')}
               icon="🎨"
               link="/portfolio"
               delay={1}
             />
             <FeatureCard
-              title="Desafios & Conquistas"
-              description="Complete desafios interativos e desbloqueie informações exclusivas."
+              title={t('challengesAchievements')}
+              description={t('challengesAchievementsDesc')}
               icon="🏆"
               link="/challenges"
               delay={2}
@@ -166,24 +180,23 @@ const Index = () => {
       </section>
       
       {/* About section */}
-      <section className="section-container bg-muted/10">
+      <section className="section-container">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6 neon-text">
-                SOBRE O PROJETO
+              <h2 className="text-3xl sm:text-4xl font-montserrat font-semibold mb-6 elegant-heading">
+                {t('aboutProject')}
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                Este projeto é um portfólio interativo que vai além da simples exibição de trabalhos. É uma experiência 
-                imersiva projetada para engajar visitantes e demonstrar habilidades criativas através de:
+                {t('aboutProjectDesc')}
               </p>
               <ul className="space-y-3">
                 {[
-                  'Interatividade profunda e envolvente',
-                  'Narrativas visuais que contam uma história',
-                  'Elementos de gamificação que incentivam exploração',
-                  'Design cinemático e atmosférico',
-                  'Experiência de usuário personalizada'
+                  t('aboutProjectPoint1'),
+                  t('aboutProjectPoint2'),
+                  t('aboutProjectPoint3'),
+                  t('aboutProjectPoint4'),
+                  t('aboutProjectPoint5')
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <span className="text-primary mt-0.5">✓</span>
@@ -195,44 +208,44 @@ const Index = () => {
                 <InteractiveElement>
                   <Link
                     to="/contact"
-                    className="px-6 py-3 bg-muted/50 text-foreground font-medium rounded-md hover:bg-muted/70 transition-colors"
+                    className="button-secondary"
                   >
-                    Entre em Contato
+                    {t('getInTouch')}
                   </Link>
                 </InteractiveElement>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-radial from-neon-purple/20 to-transparent z-0" />
-              <div className="relative z-10 aspect-video rounded-lg overflow-hidden neon-border">
+              <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent z-0" />
+              <div className="relative z-10 aspect-video rounded-xl overflow-hidden shadow-lg">
                 <div 
                   className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop)' }}
+                  style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1000&auto=format&fit=crop)' }}
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-neon-green/10 rounded-full blur-3xl -z-10" />
-              <div className="absolute -top-6 -left-6 w-40 h-40 bg-neon-blue/10 rounded-full blur-3xl -z-10" />
+              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-accent/10 rounded-full blur-3xl -z-10" />
+              <div className="absolute -top-6 -left-6 w-40 h-40 bg-primary/10 rounded-full blur-3xl -z-10" />
             </div>
           </div>
         </div>
       </section>
       
       {/* CTA section */}
-      <section className="section-container">
+      <section className="section-container bg-white/30">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold mb-6 neon-text">
-              PRONTO PARA COMEÇAR?
+            <h2 className="text-3xl sm:text-4xl font-montserrat font-semibold mb-6 elegant-heading">
+              {t('readyToStart')}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Embarque nessa viagem cinemática e explore um universo de criatividade e inovação.
+              {t('readyToStartDesc')}
             </p>
             <InteractiveElement>
               <Link
                 to="/journey"
-                className="px-8 py-4 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors"
+                className="button-primary"
               >
-                Iniciar Exploração
+                {t('startExploration')}
               </Link>
             </InteractiveElement>
           </div>
@@ -260,11 +273,11 @@ const FeatureCard = ({ title, description, icon, link, delay = 0 }: FeatureCardP
       style={{ animationDelay: `${delay * 0.2}s` }}
     >
       <Link to={link} className="block h-full">
-        <div className="h-full bg-card border border-border/50 rounded-lg p-6">
-          <div className="w-12 h-12 rounded-lg bg-muted/30 flex items-center justify-center text-2xl mb-4">
+        <div className="h-full bg-white/70 backdrop-blur-sm border border-border/30 rounded-xl p-6 shadow-sm">
+          <div className="w-12 h-12 rounded-lg bg-muted/20 flex items-center justify-center text-2xl mb-4">
             {icon}
           </div>
-          <h3 className="font-display text-xl font-bold mb-2">{title}</h3>
+          <h3 className="font-montserrat text-xl font-medium mb-2">{title}</h3>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </Link>

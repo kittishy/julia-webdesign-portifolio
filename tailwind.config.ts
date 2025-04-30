@@ -21,7 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				display: ['"Orbitron"', 'sans-serif'],
+				montserrat: ['Montserrat', 'sans-serif'],
 				mono: ['"Space Mono"', 'monospace'],
 			},
 			colors: {
@@ -58,23 +58,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-				neon: {
-					blue: '#00f3ff',
-					purple: '#9a00ff',
-					pink: '#ff00d4',
-					green: '#00ff66',
-					yellow: '#ffde00'
-				},
+				// Definindo cores específicas para o estilo Genshin Impact
+				genshin: {
+					blue: '#33C3F0',
+					lightBlue: '#D3E4FD',
+					softGray: '#F1F0FB',
+					white: '#FFFFFF',
+					lightGray: '#C8C8C9',
+					coolGray: '#AAADB0',
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -102,14 +94,14 @@ export default {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' },
 				},
-				'pulse-glow': {
+				'pulse-soft': {
 					'0%, 100%': { 
-						opacity: '0.6',
-						filter: 'brightness(1) blur(4px)'
+						opacity: '0.8',
+						filter: 'brightness(1) blur(0px)'
 					},
 					'50%': { 
 						opacity: '1',
-						filter: 'brightness(1.2) blur(2px)'
+						filter: 'brightness(1.1) blur(1px)'
 					},
 				},
 				'rotate-slow': {
@@ -120,26 +112,27 @@ export default {
 					'0%': { backgroundPosition: '0% center' },
 					'100%': { backgroundPosition: '200% center' },
 				},
-				'meteor': {
-					'0%': { transform: 'translateY(0) translateX(0) rotate(0deg)', opacity: '1' },
-					'100%': { transform: 'translateY(500px) translateX(-200px) rotate(45deg)', opacity: '0' },
+				'shimmer': {
+					'0%': { backgroundPosition: '-1000px 0' },
+					'100%': { backgroundPosition: '1000px 0' },
 				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.3s ease-out forwards',
-				'fade-out': 'fade-out 0.3s ease-out forwards',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'fade-out': 'fade-out 0.5s ease-out forwards',
 				'float': 'float 6s ease-in-out infinite',
-				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
-				'rotate-slow': 'rotate-slow 12s linear infinite',
+				'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 15s linear infinite',
 				'background-pan': 'background-pan 3s linear infinite',
-				'meteor': 'meteor 5s linear forwards',
+				'shimmer': 'shimmer 2.5s infinite linear',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				'gradient-shine': 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
+				'gradient-shine': 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent)',
+				'celestial-pattern': 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%2333C3F0\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
 			},
 		}
 	},

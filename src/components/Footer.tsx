@@ -1,75 +1,104 @@
 
 import { Link } from 'react-router-dom';
+import { Instagram, Twitter, Github, Mail, Globe } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
-    <footer className="bg-card border-t border-border/50 py-8 mt-16">
+    <footer className="bg-white/80 backdrop-blur-md border-t border-border/30 py-8 mt-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="text-center md:text-left">
-            <Link to="/" className="font-display text-xl font-bold neon-text">
-              CINEMATIC VOYAGE
+            <Link to="/" className="font-montserrat text-xl font-medium elegant-heading">
+              {t('siteName')}
             </Link>
             <p className="text-sm text-muted-foreground mt-2">
-              A journey through concepts and ideas
+              {t('footerTagline')}
             </p>
           </div>
           
           {/* Navigation */}
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Home
+              {t('home')}
             </Link>
             <Link to="/journey" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Journey
+              {t('journey')}
             </Link>
             <Link to="/portfolio" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Concepts
+              {t('concepts')}
             </Link>
             <Link to="/challenges" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Challenges
+              {t('challenges')}
             </Link>
             <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Contact
+              {t('contact')}
             </Link>
           </div>
           
           {/* Social links */}
           <div className="flex items-center gap-4">
             <a 
-              href="https://twitter.com" 
+              href="https://pin.it/3s4HmDTtZ" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="Pinterest"
             >
-              <span className="sr-only">Twitter</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+              <Globe className="w-4 h-4" />
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/criecomflow" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="Instagram"
             >
-              <span className="sr-only">Instagram</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+              <Instagram className="w-4 h-4" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://open.spotify.com/user/315sh472qwzqkmzubi3df2xdmbou" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="Spotify"
             >
-              <span className="sr-only">LinkedIn</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <Globe className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://x.com/kittishysz" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://github.com/kittishy" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+            <a 
+              href="mailto:solara.julia.a@gmail.com" 
+              className="w-8 h-8 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground hover:bg-primary/20 hover:text-primary transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-4 h-4" />
             </a>
           </div>
         </div>
         
         <div className="mt-8 pt-4 border-t border-border/30 text-center">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Cinematic Voyage. All rights reserved.
+            © {new Date().getFullYear()} {t('siteName')}. {t('allRightsReserved')}
           </p>
         </div>
       </div>

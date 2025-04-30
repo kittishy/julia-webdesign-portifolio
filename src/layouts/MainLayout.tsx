@@ -34,7 +34,7 @@ const MainLayout = ({ children }: Props) => {
   return (
     <DynamicBackground>
       <Header />
-      <main className="min-h-screen pt-16">
+      <main>
         {children}
       </main>
       <Footer />

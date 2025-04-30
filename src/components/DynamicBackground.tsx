@@ -1,121 +1,92 @@
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface Props {
   children: React.ReactNode;
 }
 
 const DynamicBackground = ({ children }: Props) => {
-  const starsRef = useRef<HTMLDivElement>(null);
-  const [time, setTime] = useState<'dawn' | 'day' | 'dusk' | 'night'>('day');
+  const containerRef = useRef<HTMLDivElement>(null);
   
-  // Determine time of day based on current hour
+  // Create stars on mount
   useEffect(() => {
-    const updateTimeOfDay = () => {
-      const hour = new Date().getHours();
-      if (hour >= 5 && hour < 8) {
-        setTime('dawn');
-      } else if (hour >= 8 && hour < 17) {
-        setTime('day');
-      } else if (hour >= 17 && hour < 20) {
-        setTime('dusk');
-      } else {
-        setTime('night');
-      }
-    };
+    if (!containerRef.current) return;
     
-    updateTimeOfDay();
-    const interval = setInterval(updateTimeOfDay, 60000); // Check every minute
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'stars-container';
     
-    return () => clearInterval(interval);
-  }, []);
-  
-  // Create stars
-  useEffect(() => {
-    if (!starsRef.current) return;
-    
-    const createStars = () => {
-      const container = starsRef.current;
-      if (!container) return;
+    // Create stars
+    const starCount = Math.floor(window.innerWidth / 10); // Responsive star count
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
       
-      container.innerHTML = '';
+      // Random star properties
+      const size = Math.random() * 3 + 1;
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 100;
+      const delay = Math.random() * 5;
+      const duration = Math.random() * 3 + 2;
+      const opacity = Math.random() * 0.3 + 0.1;
       
-      const starCount = Math.min(window.innerWidth / 3, 200);
+      // Apply star styles
+      star.style.setProperty('--delay', `${delay}s`);
+      star.style.setProperty('--duration', `${duration}s`);
+      star.style.setProperty('--opacity', `${opacity}`);
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${posX}%`;
+      star.style.top = `${posY}%`;
       
-      for (let i = 0; i < starCount; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        
-        const size = Math.random() * 2 + 1;
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        
-        star.style.setProperty('--opacity', (Math.random() * 0.7 + 0.3).toString());
-        star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
-        star.style.setProperty('--delay', `${Math.random() * 2}s`);
-        
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.top = `${Math.random() * 100}%`;
-        
-        container.appendChild(star);
-      }
-    };
+      starsContainer.appendChild(star);
+    }
     
-    createStars();
-    window.addEventListener('resize', createStars);
-    
-    return () => window.removeEventListener('resize', createStars);
-  }, []);
-  
-  // Occasionally create meteors
-  useEffect(() => {
-    if (!starsRef.current || time !== 'night') return;
-    
+    // Add meteor effect occasionally
     const createMeteor = () => {
-      const container = starsRef.current;
-      if (!container) return;
-      
       const meteor = document.createElement('div');
-      meteor.className = 'meteor animate-meteor';
+      meteor.className = 'meteor';
       
-      const width = Math.random() * 200 + 100;
-      meteor.style.width = `${width}px`;
-      meteor.style.height = '2px';
+      const size = Math.random() * 2 + 1;
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 40;
+      const duration = Math.random() * 2 + 1;
       
-      meteor.style.left = `${Math.random() * 100}%`;
-      meteor.style.top = '-2px';
+      meteor.style.width = `${size}px`;
+      meteor.style.height = `${Math.random() * 20 + 30}px`;
+      meteor.style.left = `${posX}%`;
+      meteor.style.top = `${posY}%`;
+      meteor.style.animationDuration = `${duration}s`;
+      meteor.style.opacity = '1';
       
-      container.appendChild(meteor);
+      starsContainer.appendChild(meteor);
       
-      // Remove meteor after animation completes
       setTimeout(() => {
-        container.removeChild(meteor);
-      }, 5000);
+        meteor.remove();
+      }, duration * 1000);
     };
     
-    const interval = setInterval(createMeteor, 10000); // Create meteor every 10 seconds
+    // Add meteors randomly
+    const meteorInterval = setInterval(() => {
+      if (Math.random() > 0.7) {
+        createMeteor();
+      }
+    }, 3000);
     
-    return () => clearInterval(interval);
-  }, [time]);
+    containerRef.current.appendChild(starsContainer);
+    
+    // Clean up
+    return () => {
+      clearInterval(meteorInterval);
+    };
+  }, []);
   
   return (
-    <div className="min-h-screen w-full overflow-hidden">
-      {/* Dynamic background based on time of day */}
-      <div 
-        className={`fixed inset-0 transition-colors duration-3000 z-[-2] ${
-          time === 'dawn' ? 'bg-gradient-to-t from-[#614385] to-[#516395]' :
-          time === 'day' ? 'bg-gradient-to-b from-[#141e30] to-[#243b55]' :
-          time === 'dusk' ? 'bg-gradient-to-t from-[#232526] to-[#414345]' :
-          'bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e]'
-        }`}
-      />
+    <div ref={containerRef} className="celestial-bg min-h-screen bg-celestial-pattern overflow-x-hidden">
+      {/* Background gradient circles/elements */}
+      <div className="fixed top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10" />
+      <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl -z-10" />
+      <div className="fixed top-1/4 left-1/4 w-[300px] h-[300px] bg-secondary/10 rounded-full blur-2xl -z-10" />
       
-      {/* Stars container */}
-      <div ref={starsRef} className="stars-container">
-        {/* Stars will be created dynamically */}
-      </div>
-      
-      {/* Content */}
       {children}
     </div>
   );
