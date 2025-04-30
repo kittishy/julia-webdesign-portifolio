@@ -1,6 +1,19 @@
 
-import { Instagram,  Globe } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import React from 'react';
+const Footer: React.FC = () => {
+  return (
+    <footer className="fixed bottom-0 left-0 w-full bg-black/20 p-4 text-cream">
+      <div className="flex justify-between items-center">
+        <div>© 2023 CelestialNexus. All rights reserved.</div>
+        <div className="flex gap-4">
+          <a href="#"></a>
+          <a href="#"></a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+export default Footer;
 
 const Footer = () => {
   const { t } = useLanguage();
