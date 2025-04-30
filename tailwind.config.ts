@@ -25,11 +25,6 @@ export default {
 				mono: ['"Space Mono"', 'monospace'],
 			},
 			colors: {
-				// Mid-Autumn Festival Theme Colors
-				primary: '#271B3B',
-				secondary: '#35246B',
-				cream: '#FFF9E8',
-				'accent-red': '#FF719A',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -64,7 +59,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				// Definindo cores específicas para o estilo Genshin Impact
-				'genshin': {
+				genshin: {
 					blue: '#33C3F0',
 					lightBlue: '#D3E4FD',
 					softGray: '#F1F0FB',

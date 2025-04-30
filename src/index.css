@@ -1,4 +1,183 @@
 
-body {
-background-color: theme(colors.primary); color: theme(colors.cream);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 220 35% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 35% 15%;
+
+    --primary: 208 81% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 196 100% 85%;
+    --secondary-foreground: 220 35% 15%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 348 83% 81%;
+    --accent-foreground: 348 40% 30%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 208 81% 54%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  .elegant-text {
+    @apply font-montserrat text-foreground;
+  }
+  
+  .elegant-heading {
+    @apply font-montserrat font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+  }
+
+  .elegant-border {
+    @apply border border-border/40 shadow-sm;
+  }
+
+  .interactive-item {
+    @apply transition-all duration-300 hover:scale-[1.02] cursor-pointer;
+  }
+
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-sm border border-white/40 shadow-sm;
+  }
+
+  .section-container {
+    @apply min-h-screen w-full py-16 px-4 sm:px-6 md:px-8 lg:px-10 relative;
+  }
+
+  .progress-bar {
+    @apply h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full;
+  }
+  
+  .button-primary {
+    @apply px-6 py-3 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/90 transition-colors;
+  }
+  
+  .button-secondary {
+    @apply px-6 py-3 bg-muted text-foreground font-medium rounded-full hover:bg-muted/70 transition-colors;
+  }
+}
+
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: var(--opacity); }
+}
+
+/* Floating elements */
+.floating {
+  animation: floating calc(3s + (var(--float-offset, 0) * 2s)) ease-in-out infinite;
+  animation-delay: calc(var(--float-offset, 0) * -1s);
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(calc(-10px - var(--float-offset, 0) * 5px)) 
+               rotate(calc(var(--float-rotate, 0) * 3deg));
+  }
+}
+
+.celestial-bg {
+  background: linear-gradient(135deg, #e0f2ff 0%, #d5e7ff 100%);
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.celestial-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.8), transparent 50%);
+  z-index: 0;
+}
+
+@layer utilities {
+  .scale-102 {
+    --tw-scale-x: 1.02;
+    --tw-scale-y: 1.02;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
+.character-card {
+  @apply rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white;
+}
+
+.search-bar {
+  @apply w-full max-w-md px-4 py-2 rounded-full border border-border/40 bg-white/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30;
+}
+
+.language-switcher {
+  @apply flex items-center justify-center w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:bg-white transition-colors;
 }
