@@ -10,7 +10,7 @@ interface Props {
   disableHover?: boolean;
   disableClick?: boolean;
   onClick?: () => void;
-  style?: React.CSSProperties; // Added style prop
+  style?: React.CSSProperties;
 }
 
 const InteractiveElement = ({ 
@@ -21,7 +21,7 @@ const InteractiveElement = ({
   disableHover = false,
   disableClick = false,
   onClick,
-  style // Added style prop
+  style
 }: Props) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -77,7 +77,7 @@ const InteractiveElement = ({
       className={cn(
         'relative transition-transform duration-300 overflow-hidden',
         !disableHover && 'cursor-pointer',
-        isHovered && !disableHover && `scale-${scale}`,
+        isHovered && !disableHover && `scale-[${scale}]`,
         className
       )}
       style={{
@@ -85,7 +85,7 @@ const InteractiveElement = ({
           `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)` : 
           'perspective(1000px) rotateX(0) rotateY(0)',
         transition: 'transform 0.2s ease-out',
-        ...style // Spread the style prop here
+        ...style
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}

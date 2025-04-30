@@ -79,7 +79,7 @@
   }
 
   .interactive-item {
-    @apply transition-all duration-300 hover:scale-102 cursor-pointer;
+    @apply transition-all duration-300 hover:scale-[1.02] cursor-pointer;
   }
 
   .glass-panel {
@@ -162,14 +162,16 @@
   z-index: 0;
 }
 
-.scale-102 {
-  --tw-scale-x: 1.02;
-  --tw-scale-y: 1.02;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+@layer utilities {
+  .scale-102 {
+    --tw-scale-x: 1.02;
+    --tw-scale-y: 1.02;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
 }
 
 .character-card {
-  @apply rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-102 bg-white;
+  @apply rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white;
 }
 
 .search-bar {
