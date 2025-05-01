@@ -16,7 +16,7 @@ interface Props {
 const InteractiveElement = ({ 
   children,
   className,
-  glowColor = 'rgba(0, 243, 255, 0.3)',
+  glowColor = 'rgba(255, 113, 154, 0.3)', // Cor secondary
   intensity = 'medium',
   disableHover = false,
   disableClick = false,
@@ -28,7 +28,7 @@ const InteractiveElement = ({
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   
-  // Handle mouse move for 3D rotation effect
+  // Controlar movimento do mouse para efeito de rotação 3D
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!elementRef.current || disableHover) return;
     
@@ -36,25 +36,25 @@ const InteractiveElement = ({
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     
-    // Calculate rotation based on mouse position relative to center
+    // Calcular rotação com base na posição do mouse em relação ao centro
     const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * 5;
     const rotateX = -((e.clientY - centerY) / (rect.height / 2)) * 5;
     
     setRotation({ x: rotateX, y: rotateY });
     
-    // Calculate glow position
+    // Calcular posição do brilho
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     setPosition({ x, y });
   };
   
-  // Reset rotation when mouse leaves
+  // Resetar rotação quando o mouse sai
   const handleMouseLeave = () => {
     setIsHovered(false);
     setRotation({ x: 0, y: 0 });
   };
   
-  // Clean up event listeners
+  // Limpar event listeners
   useEffect(() => {
     return () => {
       setIsHovered(false);
@@ -62,7 +62,7 @@ const InteractiveElement = ({
     };
   }, []);
   
-  // Set intensity values
+  // Definir valores de intensidade
   const intensityValues = {
     low: { scale: 1.02, glow: '10px', shadow: '0 5px 15px' },
     medium: { scale: 1.05, glow: '15px', shadow: '0 8px 25px' },
@@ -92,7 +92,7 @@ const InteractiveElement = ({
       onMouseLeave={handleMouseLeave}
       onClick={!disableClick ? onClick : undefined}
     >
-      {/* Glow effect */}
+      {/* Efeito de brilho */}
       {isHovered && !disableHover && (
         <div 
           className="absolute inset-0 pointer-events-none z-[-1] opacity-70"
@@ -104,7 +104,7 @@ const InteractiveElement = ({
         />
       )}
       
-      {/* Content */}
+      {/* Conteúdo */}
       {children}
     </div>
   );

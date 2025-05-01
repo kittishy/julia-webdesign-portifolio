@@ -10,7 +10,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useLanguage();
   
-  // Handle scroll event to change header appearance
+  // Detectar scroll para mudar a aparência do cabeçalho
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
@@ -27,18 +27,18 @@ const Header = () => {
     <header 
       className={cn(
         'fixed top-0 left-0 w-full z-50 transition-all duration-300 px-4 sm:px-6',
-        scrolled ? 'py-2 bg-white/80 backdrop-blur-md shadow-sm' : 'py-4'
+        scrolled ? 'py-2 bg-background/80 backdrop-blur-md shadow-sm' : 'py-4'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="interactive-item">
-          <h1 className="font-montserrat text-xl sm:text-2xl font-medium elegant-heading">
+          <h1 className="font-playfair text-xl sm:text-2xl font-medium text-accent">
             {t('siteName')}
           </h1>
         </Link>
         
-        {/* Navigation for desktop */}
+        {/* Navegação para desktop */}
         <nav className="hidden md:flex items-center gap-8">
           <NavLink to="/" label={t('home')} />
           <NavLink to="/journey" label={t('journey')} />
@@ -48,12 +48,12 @@ const Header = () => {
           <LanguageSwitcher />
         </nav>
         
-        {/* Mobile nav controls */}
+        {/* Controles de navegação mobile */}
         <div className="flex items-center gap-4 md:hidden">
           <LanguageSwitcher />
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 text-foreground hover:text-primary transition-colors"
+            className="p-2 text-foreground hover:text-secondary transition-colors"
             aria-label="Toggle menu"
           >
             <div className="w-6 flex flex-col gap-1.5">
@@ -80,10 +80,10 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
+      {/* Menu mobile */}
       <div 
         className={cn(
-          "md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-lg shadow-sm transition-all duration-300 overflow-hidden",
+          "md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg shadow-sm transition-all duration-300 overflow-hidden",
           menuOpen ? "max-h-96 py-4" : "max-h-0 py-0"
         )}
       >
@@ -108,10 +108,10 @@ const NavLink = ({ to, label }: NavLinkProps) => {
   return (
     <Link 
       to={to} 
-      className="relative font-medium text-sm tracking-wide text-foreground/80 hover:text-foreground transition-colors group"
+      className="relative font-medium text-sm tracking-wide text-foreground/80 hover:text-accent transition-colors group"
     >
       {label}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
     </Link>
   );
 };
@@ -124,7 +124,7 @@ const MobileNavLink = ({ to, label, onClick }: MobileNavLinkProps) => {
   return (
     <Link 
       to={to} 
-      className="w-full py-2 text-center font-medium tracking-wide text-foreground/80 hover:text-primary transition-colors"
+      className="w-full py-2 text-center font-medium tracking-wide text-foreground/80 hover:text-accent transition-colors"
       onClick={onClick}
     >
       {label}

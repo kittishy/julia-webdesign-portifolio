@@ -4,18 +4,15 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import MainLayout from '@/layouts/MainLayout';
 import InteractiveElement from '@/components/InteractiveElement';
-import CharacterCarousel from '@/components/CharacterCarousel';
 import SearchBar from '@/components/SearchBar';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { trackMouseMovement } from '@/utils/mouse-tracking';
+import MoonWithClouds, { Moon, Lantern } from '@/components/MoonFestival';
 
 const Index = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const heroImgRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   
-  // Track scroll progress
+  // Acompanhar progresso de rolagem
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -29,37 +26,7 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  // Apply parallax effect on hero section
-  useEffect(() => {
-    if (!heroRef.current || !heroImgRef.current) return;
-    
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const speed = 0.3;
-      
-      if (heroImgRef.current) {
-        heroImgRef.current.style.transform = `translateY(${scrollY * speed}px)`;
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  // Mouse tracking for hero section
-  useEffect(() => {
-    if (!heroImgRef.current) return;
-    
-    return trackMouseMovement((x, y) => {
-      if (heroImgRef.current) {
-        const moveX = (x - 0.5) * 10;
-        const moveY = (y - 0.5) * 10;
-        heroImgRef.current.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
-      }
-    });
-  }, []);
-  
-  // Register home page visit
+  // Registrar visita à página inicial
   useEffect(() => {
     const visitedSections = JSON.parse(localStorage.getItem('visitedSections') || '{}');
     visitedSections.home = true;
@@ -68,44 +35,34 @@ const Index = () => {
   
   return (
     <MainLayout>
-      {/* Progress bar */}
+      {/* Barra de progresso */}
       <div className="fixed top-0 left-0 w-full h-1 z-50">
         <div 
-          className="h-full bg-gradient-to-r from-primary to-accent"
+          className="h-full bg-gradient-to-r from-primary to-secondary"
           style={{ width: `${scrollProgress * 100}%` }}
         />
       </div>
       
-      {/* Hero section */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-16">
-        {/* Background image with parallax */}
-        <div 
-          ref={heroImgRef}
-          className="absolute inset-0 w-full h-[120%] bg-cover bg-center -z-10 transition-transform duration-300"
-          style={{ 
-            backgroundImage: 'url(https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=1920&auto=format&fit=crop)',
-            backgroundBlendMode: 'overlay',
-            backgroundColor: 'rgba(255, 255, 255, 0.85)'
-          }}
-        />
-        
-        {/* Hero content */}
-        <div className="container mx-auto px-6 lg:px-8 py-20">
-          <div className="flex flex-col md:flex-row items-center gap-8">
+      {/* Seção de hero */}
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+        <div className="container mx-auto px-6 lg:px-8 py-12">
+          <div className="flex flex-col items-center text-center">
             <div 
-              className="max-w-lg mx-auto md:mx-0 text-center md:text-left"
+              className="max-w-3xl mx-auto"
               data-aos="fade-up"
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-montserrat font-semibold mb-6 elegant-heading">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-semibold mb-6 text-accent">
                 {t('siteName')}
               </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-8">
+              <p className="text-lg sm:text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
                 {t('siteTagline')}
               </p>
               
-              <SearchBar className="mb-8 mx-auto md:mx-0 max-w-md" />
+              <SearchBar className="mb-12 mx-auto max-w-md" />
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <MoonWithClouds />
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
                 <InteractiveElement>
                   <Link
                     to="/journey"
@@ -124,31 +81,26 @@ const Index = () => {
                 </InteractiveElement>
               </div>
             </div>
-            
-            <div className="w-full md:w-1/2 mt-8 md:mt-0">
-              {/* Character carousel will go here */}
-              <CharacterCarousel />
-            </div>
           </div>
         </div>
         
-        {/* Scroll indicator */}
+        {/* Indicador de rolagem */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-sm text-muted-foreground">{t('scrollDown')}</span>
-          <div className="w-6 h-9 border-2 border-muted-foreground/30 rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-muted-foreground/50 rounded-full mt-2" />
+          <span className="text-sm text-foreground/60">{t('scrollDown')}</span>
+          <div className="w-6 h-9 border-2 border-foreground/30 rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-foreground/50 rounded-full mt-2" />
           </div>
         </div>
       </section>
       
-      {/* Features section */}
-      <section className="section-container bg-white/30">
+      {/* Seção de destaques */}
+      <section className="section-container bg-primary/20">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-semibold mb-4 elegant-heading">
+            <h2 className="text-3xl sm:text-4xl font-playfair font-semibold mb-4 text-accent">
               {t('interactiveExperience')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
               {t('exploreDigitalExperience')}
             </p>
           </div>
@@ -157,37 +109,45 @@ const Index = () => {
             <FeatureCard
               title={t('visualStory')}
               description={t('visualStoryDesc')}
-              icon="📚"
+              icon="🏮"
               link="/journey"
               delay={0}
             />
             <FeatureCard
               title={t('conceptPortfolio')}
               description={t('conceptPortfolioDesc')}
-              icon="🎨"
+              icon="🌕"
               link="/portfolio"
               delay={1}
             />
             <FeatureCard
               title={t('challengesAchievements')}
               description={t('challengesAchievementsDesc')}
-              icon="🏆"
+              icon="🎭"
               link="/challenges"
               delay={2}
             />
           </div>
+          
+          {/* Elementos decorativos */}
+          <div className="absolute -bottom-10 -right-10 opacity-50">
+            <Lantern delay={1.5} />
+          </div>
+          <div className="absolute -bottom-10 -left-10 opacity-50">
+            <Lantern delay={2.2} />
+          </div>
         </div>
       </section>
       
-      {/* About section */}
+      {/* Sobre o Festival */}
       <section className="section-container">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-montserrat font-semibold mb-6 elegant-heading">
+              <h2 className="text-3xl sm:text-4xl font-playfair font-semibold mb-6 text-accent">
                 {t('aboutProject')}
               </h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-lg text-foreground/80 mb-6">
                 {t('aboutProjectDesc')}
               </p>
               <ul className="space-y-3">
@@ -199,7 +159,7 @@ const Index = () => {
                   t('aboutProjectPoint5')
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="text-primary mt-0.5">✓</span>
+                    <span className="text-secondary mt-0.5">✓</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -216,28 +176,31 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-radial from-primary/10 to-transparent z-0" />
-              <div className="relative z-10 aspect-video rounded-xl overflow-hidden shadow-lg">
+              <div className="absolute inset-0 bg-gradient-radial from-secondary/10 to-transparent z-0" />
+              <div className="relative z-10 aspect-video rounded-xl overflow-hidden shadow-lg border border-border/20">
                 <div 
                   className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1000&auto=format&fit=crop)' }}
+                  style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1488503674815-d6c13687ff65?q=80&w=1000&auto=format&fit=crop)' }}
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-accent/10 rounded-full blur-3xl -z-10" />
-              <div className="absolute -top-6 -left-6 w-40 h-40 bg-primary/10 rounded-full blur-3xl -z-10" />
+              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-secondary/10 rounded-full blur-3xl -z-10" />
+              <div className="absolute -top-6 -left-6 w-40 h-40 bg-primary/15 rounded-full blur-3xl -z-10" />
+              <div className="absolute top-1/2 -right-12 transform -translate-y-1/2">
+                <Moon size="sm" />
+              </div>
             </div>
           </div>
         </div>
       </section>
       
-      {/* CTA section */}
-      <section className="section-container bg-white/30">
+      {/* CTA seção */}
+      <section className="section-container bg-primary/20">
         <div className="container mx-auto px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-montserrat font-semibold mb-6 elegant-heading">
+            <h2 className="text-3xl sm:text-4xl font-playfair font-semibold mb-6 text-accent">
               {t('readyToStart')}
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-foreground/80 mb-8">
               {t('readyToStartDesc')}
             </p>
             <InteractiveElement>
@@ -271,14 +234,15 @@ const FeatureCard = ({ title, description, icon, link, delay = 0 }: FeatureCardP
         "animate-fade-in"
       )}
       style={{ animationDelay: `${delay * 0.2}s` }}
+      glowColor="rgba(255, 249, 232, 0.2)"
     >
       <Link to={link} className="block h-full">
-        <div className="h-full bg-white/70 backdrop-blur-sm border border-border/30 rounded-xl p-6 shadow-sm">
-          <div className="w-12 h-12 rounded-lg bg-muted/20 flex items-center justify-center text-2xl mb-4">
+        <div className="h-full glass-panel rounded-xl p-6 shadow-sm">
+          <div className="w-14 h-14 rounded-lg bg-primary/30 flex items-center justify-center text-3xl mb-4">
             {icon}
           </div>
-          <h3 className="font-montserrat text-xl font-medium mb-2">{title}</h3>
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <h3 className="font-playfair text-xl font-medium mb-2 text-accent">{title}</h3>
+          <p className="text-sm text-foreground/80">{description}</p>
         </div>
       </Link>
     </InteractiveElement>

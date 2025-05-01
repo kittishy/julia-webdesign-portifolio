@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    --background: 220 33% 98%;
-    --foreground: 220 35% 15%;
+    --background: 256 30% 17%; /* #271B3B */
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 35% 15%;
+    --card: 256 30% 22%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 35% 15%;
+    --popover: 256 30% 17%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 208 81% 54%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 256 47% 28%; /* #35246B */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 196 100% 85%;
-    --secondary-foreground: 220 35% 15%;
+    --secondary: 330 100% 72%; /* #FF719A */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 15% 40%;
+    --muted: 256 20% 25%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 348 83% 81%;
-    --accent-foreground: 348 40% 30%;
+    --accent: 45 100% 96%; /* #FFF9E8 */
+    --accent-foreground: 256 30% 17%;
 
     --destructive: 0 85% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 208 81% 54%;
+    --border: 256 30% 30%;
+    --input: 256 30% 30%;
+    --ring: 330 100% 72%;
 
     --radius: 0.75rem;
   }
@@ -57,11 +57,11 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/50 rounded-full;
+    @apply bg-secondary/50 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary;
+    @apply bg-secondary;
   }
 }
 
@@ -71,7 +71,7 @@
   }
   
   .elegant-heading {
-    @apply font-montserrat font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+    @apply font-playfair font-medium text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary;
   }
 
   .elegant-border {
@@ -83,83 +83,29 @@
   }
 
   .glass-panel {
-    @apply bg-white/80 backdrop-blur-sm border border-white/40 shadow-sm;
+    @apply bg-primary/30 backdrop-blur-sm border border-primary/40 shadow-sm;
   }
 
   .section-container {
     @apply min-h-screen w-full py-16 px-4 sm:px-6 md:px-8 lg:px-10 relative;
   }
 
-  .progress-bar {
-    @apply h-1 bg-gradient-to-r from-primary via-accent to-secondary rounded-full;
-  }
-  
   .button-primary {
-    @apply px-6 py-3 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/90 transition-colors;
+    @apply px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-full hover:bg-secondary/90 transition-colors;
   }
   
   .button-secondary {
-    @apply px-6 py-3 bg-muted text-foreground font-medium rounded-full hover:bg-muted/70 transition-colors;
+    @apply px-6 py-3 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/70 transition-colors;
   }
-}
 
-.stars-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.star {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  opacity: 0;
-  animation: twinkle var(--duration) ease-in-out infinite;
-  animation-delay: var(--delay);
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0; }
-  50% { opacity: var(--opacity); }
-}
-
-/* Floating elements */
-.floating {
-  animation: floating calc(3s + (var(--float-offset, 0) * 2s)) ease-in-out infinite;
-  animation-delay: calc(var(--float-offset, 0) * -1s);
-}
-
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0) rotate(0);
+  .moon-glow {
+    @apply relative;
   }
-  50% {
-    transform: translateY(calc(-10px - var(--float-offset, 0) * 5px)) 
-               rotate(calc(var(--float-rotate, 0) * 3deg));
+  
+  .moon-glow::after {
+    content: "";
+    @apply absolute inset-0 rounded-full bg-accent/20 blur-xl -z-10;
   }
-}
-
-.celestial-bg {
-  background: linear-gradient(135deg, #e0f2ff 0%, #d5e7ff 100%);
-  background-size: cover;
-  position: relative;
-  overflow: hidden;
-}
-
-.celestial-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.8), transparent 50%);
-  z-index: 0;
 }
 
 @layer utilities {
@@ -170,14 +116,92 @@
   }
 }
 
-.character-card {
-  @apply rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-white;
+/* Animações */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: var(--star-brightness, 0.7); }
+}
+
+/* Classes de animação */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.pulse {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.rotate-slow {
+  animation: rotate-slow 60s linear infinite;
+}
+
+.star {
+  @apply absolute bg-white rounded-full;
+  opacity: 0;
+  animation: twinkle var(--twinkle-duration, 4s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+/* Classes específicas */
+.moon {
+  @apply w-[300px] h-[300px] bg-accent rounded-full relative overflow-hidden shadow-2xl;
+  box-shadow: 0 0 60px rgba(255, 249, 232, 0.6);
+}
+
+.moon-crater {
+  @apply absolute bg-accent/60 rounded-full;
+}
+
+.lantern {
+  @apply w-20 h-28 relative;
+}
+
+.lantern-body {
+  @apply w-full h-3/4 bg-secondary/90 rounded-md relative overflow-hidden;
+}
+
+.lantern-bottom {
+  @apply w-3/4 h-1/4 mx-auto bg-secondary/90 rounded-b-lg;
+}
+
+.lantern-glow {
+  @apply absolute inset-0 bg-secondary/30 blur-md;
+}
+
+.celestial-bg {
+  background: radial-gradient(ellipse at top, #35246B 0%, #271B3B 60%, #1A1128 100%);
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
 .search-bar {
-  @apply w-full max-w-md px-4 py-2 rounded-full border border-border/40 bg-white/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30;
+  @apply w-full max-w-md px-4 py-2 rounded-full border border-border/40 bg-primary/50 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 text-foreground;
 }
 
 .language-switcher {
-  @apply flex items-center justify-center w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:bg-white transition-colors;
+  @apply flex items-center justify-center w-10 h-10 rounded-full bg-primary/50 backdrop-blur-sm shadow-sm hover:bg-primary transition-colors text-foreground;
+}
+
+.character-card {
+  @apply rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] bg-card;
 }

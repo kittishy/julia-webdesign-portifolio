@@ -22,6 +22,7 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				montserrat: ['Montserrat', 'sans-serif'],
+				playfair: ['Playfair Display', 'serif'],
 				mono: ['"Space Mono"', 'monospace'],
 			},
 			colors: {
@@ -57,15 +58,6 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
-				},
-				// Definindo cores específicas para o estilo Genshin Impact
-				genshin: {
-					blue: '#33C3F0',
-					lightBlue: '#D3E4FD',
-					softGray: '#F1F0FB',
-					white: '#FFFFFF',
-					lightGray: '#C8C8C9',
-					coolGray: '#AAADB0',
 				}
 			},
 			borderRadius: {
@@ -132,7 +124,6 @@ export default {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 				'gradient-shine': 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent)',
-				'celestial-pattern': 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%2333C3F0\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
 			},
 		}
 	},
