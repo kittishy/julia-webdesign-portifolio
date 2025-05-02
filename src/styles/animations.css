@@ -19,21 +19,25 @@
   50% { opacity: var(--star-brightness, 0.7); }
 }
 
-/* Classes de animação */
+/* Classes de animação otimizadas com will-change */
 .float {
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .float-delayed {
   animation: float 6s ease-in-out 2s infinite;
+  will-change: transform;
 }
 
 .pulse {
   animation: pulse-glow 4s ease-in-out infinite;
+  will-change: opacity;
 }
 
 .rotate-slow {
   animation: rotate-slow 60s linear infinite;
+  will-change: transform;
 }
 
 .star {
@@ -46,4 +50,5 @@
 /* Animação fade-in adicionada ao tailwind.config.js mas definida aqui para clareza */
 .animate-fade-in {
   animation: fade-in 0.5s ease-out forwards;
+  will-change: opacity, transform;
 }

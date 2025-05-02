@@ -17,7 +17,7 @@ const DynamicBackground = ({ children }: Props) => {
     starsContainer.className = 'fixed inset-0 z-[-2] overflow-hidden';
     
     // Criar estrelas
-    const starCount = Math.floor(window.innerWidth / 8); // Mais estrelas para um céu mais preenchido
+    const starCount = Math.min(Math.floor(window.innerWidth / 10), 150); // Limitar número de estrelas para melhor desempenho
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.className = 'star';
@@ -59,12 +59,14 @@ const DynamicBackground = ({ children }: Props) => {
       cloud.style.opacity = `${opacity}`;
       cloud.style.backgroundColor = '#FFF9E8';
       cloud.style.animation = `float ${duration}s linear infinite`;
+      cloud.style.willChange = 'transform';
       
       return cloud;
     };
     
-    // Adicionar algumas nuvens
-    for (let i = 0; i < 6; i++) {
+    // Adicionar algumas nuvens (limitando a quantidade para melhor desempenho)
+    const cloudCount = Math.min(4, 6);
+    for (let i = 0; i < cloudCount; i++) {
       starsContainer.appendChild(createCloud());
     }
     

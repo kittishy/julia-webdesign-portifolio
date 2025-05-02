@@ -85,6 +85,7 @@ const InteractiveElement = ({
           `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)` : 
           'perspective(1000px) rotateX(0) rotateY(0)',
         transition: 'transform 0.2s ease-out',
+        willChange: isHovered ? 'transform' : 'auto',
         ...style
       }}
       onMouseMove={handleMouseMove}
@@ -99,7 +100,8 @@ const InteractiveElement = ({
           style={{
             background: `radial-gradient(circle at ${position.x}% ${position.y}%, ${glowColor}, transparent 70%)`,
             boxShadow: `${shadow} ${glowColor}`,
-            filter: `blur(${glow})`
+            filter: `blur(${glow})`,
+            willChange: 'background, box-shadow'
           }}
         />
       )}
