@@ -1,0 +1,49 @@
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: var(--star-brightness, 0.7); }
+}
+
+/* Classes de animação */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+.pulse {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.rotate-slow {
+  animation: rotate-slow 60s linear infinite;
+}
+
+.star {
+  @apply absolute bg-white rounded-full;
+  opacity: 0;
+  animation: twinkle var(--twinkle-duration, 4s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+/* Animação fade-in adicionada ao tailwind.config.js mas definida aqui para clareza */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}

@@ -1,0 +1,42 @@
+
+/* Classes específicas */
+.moon {
+  @apply w-[300px] h-[300px] bg-accent rounded-full relative overflow-hidden shadow-2xl;
+  box-shadow: 0 0 60px rgba(255, 249, 232, 0.6);
+}
+
+.moon-crater {
+  @apply absolute bg-accent/60 rounded-full;
+}
+
+.lantern {
+  @apply w-20 h-28 relative;
+}
+
+.lantern-body {
+  @apply w-full h-3/4 bg-secondary/90 rounded-md relative overflow-hidden;
+}
+
+.lantern-bottom {
+  @apply w-3/4 h-1/4 mx-auto bg-secondary/90 rounded-b-lg;
+}
+
+.lantern-glow {
+  @apply absolute inset-0 bg-secondary/30 blur-md;
+}
+
+.celestial-bg {
+  background: radial-gradient(ellipse at top, #35246B 0%, #271B3B 60%, #1A1128 100%);
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.moon-glow {
+  @apply relative;
+}
+  
+.moon-glow::after {
+  content: "";
+  @apply absolute inset-0 rounded-full bg-accent/20 blur-xl -z-10;
+}
