@@ -22,6 +22,7 @@ const projects = [
       "Uma presença digital editorial para uma cafeteria: menu, história, localização e experiência de marca organizados em uma navegação simples e visual.",
     scope: ["Redesign", "PT + DE", "SEO local", "Mobile"],
     tone: "coffee",
+    image: "/projects/basic-coffee.webp",
   },
   {
     index: "02",
@@ -32,6 +33,7 @@ const projects = [
       "Redesign pensado para transformar um serviço complexo em uma jornada clara: produtos, explicações, dúvidas e caminhos de contato sem deixar o visitante perdido.",
     scope: ["UX", "Conversão", "Conteúdo", "SEO"],
     tone: "health",
+    image: "/projects/s2-saude.webp",
   },
   {
     index: "03",
@@ -42,6 +44,7 @@ const projects = [
       "Um cartão digital mobile-first para concentrar apresentação profissional, serviços e atalhos de contato em uma página compacta e fácil de compartilhar.",
     scope: ["Mobile-first", "WhatsApp", "vCard", "Marca pessoal"],
     tone: "care",
+    image: "/projects/raquel.jpg",
   },
 ];
 
@@ -68,7 +71,17 @@ const services = [
   },
 ];
 
-function ProjectPreview({ title, url, tone }: { title: string; url: string; tone: string }) {
+function ProjectPreview({
+  title,
+  url,
+  tone,
+  image,
+}: {
+  title: string;
+  url: string;
+  tone: string;
+  image: string;
+}) {
   return (
     <div className={`project-preview project-preview--${tone}`}>
       <div className="browser-bar" aria-hidden="true">
@@ -78,18 +91,21 @@ function ProjectPreview({ title, url, tone }: { title: string; url: string; tone
         <div className="browser-address">{new URL(url).hostname}</div>
       </div>
       <div className="preview-canvas">
-        <div className="preview-fallback" aria-hidden="true">
-          <span>LIVE PROJECT</span>
-          <strong>{title}</strong>
-        </div>
-        <iframe
-          src={url}
-          title={`Prévia do projeto ${title}`}
+        <img
+          className="project-shot"
+          src={image}
+          alt={`Imagem do projeto ${title}`}
           loading="lazy"
-          tabIndex={-1}
-          aria-hidden="true"
+          decoding="async"
         />
-        <a href={url} target="_blank" rel="noreferrer" className="preview-hit" aria-label={`Abrir ${title} em uma nova aba`} />
+        <div className="preview-shade" aria-hidden="true" />
+        <a
+          href={url}
+          target="_blank"
+          rel="noreferrer"
+          className="preview-hit"
+          aria-label={`Abrir ${title} em uma nova aba`}
+        />
       </div>
     </div>
   );
@@ -201,7 +217,7 @@ function App() {
 
             <div className="hero-visual reveal is-visible">
               <div className="portrait-frame">
-                <img src="/julia-hero.webp" alt="Julia, web designer, em retrato profissional" width="1000" height="1000" fetchPriority="high" />
+                <img src="/julia-hero.webp?v=3" alt="Julia, web designer, em retrato profissional" width="760" height="950" fetchPriority="high" loading="eager" decoding="async" />
                 <div className="portrait-overlay" />
                 <div className="portrait-label">
                   <small>PORTFÓLIO</small>
@@ -241,7 +257,7 @@ function App() {
           <div className="projects-list">
             {projects.map((project) => (
               <article className="project reveal" key={project.title}>
-                <ProjectPreview title={project.title} url={project.url} tone={project.tone} />
+                <ProjectPreview title={project.title} url={project.url} tone={project.tone} image={project.image} />
                 <div className="project-info">
                   <div className="project-index">{project.index}</div>
                   <span className="project-eyebrow">{project.eyebrow}</span>
@@ -299,7 +315,7 @@ function App() {
         <section className="section about-section" id="sobre">
           <div className="about-grid reveal">
             <div className="about-photo">
-              <img src="/julia-about.webp" alt="Julia em um retrato casual usado no portfólio" width="720" height="960" loading="lazy" />
+              <img src="/julia-about.webp?v=3" alt="Julia em um retrato casual usado no portfólio" width="760" height="950" loading="lazy" decoding="async" />
               <span className="about-stamp">JULIA / WEB DESIGN</span>
             </div>
             <div className="about-copy">
