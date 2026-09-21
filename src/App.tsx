@@ -22,7 +22,8 @@ const projects = [
       "Uma presença digital editorial para uma cafeteria: menu, história, localização e experiência de marca organizados em uma navegação simples e visual.",
     scope: ["Redesign", "PT + DE", "SEO local", "Mobile"],
     tone: "coffee",
-    image: "/projects/basic-coffee.webp",
+    image: "/projects/screenshots/basic-coffee.png",
+    fallbackImage: "/projects/basic-coffee.webp",
   },
   {
     index: "02",
@@ -33,7 +34,8 @@ const projects = [
       "Redesign pensado para transformar um serviço complexo em uma jornada clara: produtos, explicações, dúvidas e caminhos de contato sem deixar o visitante perdido.",
     scope: ["UX", "Conversão", "Conteúdo", "SEO"],
     tone: "health",
-    image: "/projects/s2-saude.webp",
+    image: "/projects/screenshots/s2-saude.png",
+    fallbackImage: "/projects/s2-saude.webp",
   },
   {
     index: "03",
@@ -44,7 +46,8 @@ const projects = [
       "Um cartão digital mobile-first para concentrar apresentação profissional, serviços e atalhos de contato em uma página compacta e fácil de compartilhar.",
     scope: ["Mobile-first", "WhatsApp", "vCard", "Marca pessoal"],
     tone: "care",
-    image: "/projects/raquel.jpg",
+    image: "/projects/screenshots/raquel.png",
+    fallbackImage: "/projects/raquel.jpg",
   },
 ];
 
@@ -76,11 +79,13 @@ function ProjectPreview({
   url,
   tone,
   image,
+  fallbackImage,
 }: {
   title: string;
   url: string;
   tone: string;
   image: string;
+  fallbackImage: string;
 }) {
   return (
     <div className={`project-preview project-preview--${tone}`}>
@@ -94,11 +99,18 @@ function ProjectPreview({
         <img
           className="project-shot"
           src={image}
-          alt={`Imagem do projeto ${title}`}
+          alt={`Captura real do site ${title}`}
           loading="lazy"
           decoding="async"
+          onError={(event) => {
+            const img = event.currentTarget;
+            if (img.dataset.fallbackApplied === "true") return;
+            img.dataset.fallbackApplied = "true";
+            img.src = fallbackImage;
+          }}
         />
         <div className="preview-shade" aria-hidden="true" />
+        <span className="capture-badge" aria-hidden="true">CAPTURA REAL DO SITE</span>
         <a
           href={url}
           target="_blank"
@@ -257,7 +269,7 @@ function App() {
           <div className="projects-list">
             {projects.map((project) => (
               <article className="project reveal" key={project.title}>
-                <ProjectPreview title={project.title} url={project.url} tone={project.tone} image={project.image} />
+                <ProjectPreview title={project.title} url={project.url} tone={project.tone} image={project.image} fallbackImage={project.fallbackImage} />
                 <div className="project-info">
                   <div className="project-index">{project.index}</div>
                   <span className="project-eyebrow">{project.eyebrow}</span>
