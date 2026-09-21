@@ -110,7 +110,6 @@ function ProjectPreview({
           }}
         />
         <div className="preview-shade" aria-hidden="true" />
-        <span className="capture-badge" aria-hidden="true">CAPTURA REAL DO SITE</span>
         <a
           href={url}
           target="_blank"
