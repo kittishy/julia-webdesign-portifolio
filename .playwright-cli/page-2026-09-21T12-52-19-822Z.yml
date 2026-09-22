@@ -1,0 +1,232 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "Julia Web Design — início" [ref=e5] [cursor=pointer]:
+      - /url: "#inicio"
+      - generic [ref=e6]: J.
+      - generic [ref=e7]:
+        - strong [ref=e8]: Julia
+        - generic [ref=e9]: Web Design
+    - navigation "Navegação principal" [ref=e10]:
+      - link "Projetos" [ref=e11] [cursor=pointer]:
+        - /url: "#projetos"
+      - link "Serviços" [ref=e12] [cursor=pointer]:
+        - /url: "#servicos"
+      - link "Processo" [ref=e13] [cursor=pointer]:
+        - /url: "#processo"
+      - link "Sobre" [ref=e14] [cursor=pointer]:
+        - /url: "#sobre"
+    - link "Vamos conversar" [ref=e15] [cursor=pointer]:
+      - /url: "#contato"
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: CRIAÇÃO DE SITES • RIO DE JANEIRO
+          - heading [level=1] [ref=e25]:
+            - text: Sites que fazem seu negócio parecer
+            - emphasis [ref=e26]: tão bom quanto ele é.
+          - paragraph [ref=e27]: Crio sites profissionais e landing pages para empresas que querem passar confiança, explicar melhor o que fazem e transformar visita em conversa.
+          - generic [ref=e28]:
+            - link "Ver projetos reais" [ref=e29] [cursor=pointer]:
+              - /url: "#projetos"
+            - link "Quero um site assim" [ref=e33] [cursor=pointer]:
+              - /url: "#contato"
+          - generic [ref=e34]: Design, desenvolvimento, mobile e SEO pensados em conjunto.
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - img "Julia, web designer, em retrato profissional" [ref=e39]
+            - generic [ref=e41]:
+              - generic [ref=e42]: PORTFÓLIO
+              - strong [ref=e43]: "2026"
+          - generic [ref=e44]:
+            - generic [ref=e45]: BASE
+            - strong [ref=e46]: Rio de Janeiro
+            - generic [ref=e47]: atendimento remoto • Brasil
+          - generic [ref=e48]:
+            - generic [ref=e49]: AGORA
+            - strong [ref=e50]: Projetos selecionados
+            - generic [ref=e51]: 3 trabalhos publicados ↓
+      - generic "Diferenciais" [ref=e52]:
+        - generic [ref=e53]:
+          - strong [ref=e54]: "3"
+          - text: projetos publicados
+        - generic [ref=e55]: Sites responsivos
+        - generic [ref=e56]: SEO on-page
+        - generic [ref=e57]: Experiência mobile
+    - generic [ref=e58]:
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - text: 01 / PROJETOS
+          - heading [level=2] [ref=e61]:
+            - text: Não é promessa.
+            - emphasis [ref=e62]: É trabalho aberto para você clicar.
+        - paragraph [ref=e63]: Três projetos diferentes, pensados para negócios diferentes. Abra qualquer um deles e veja o site funcionando de verdade.
+      - generic [ref=e64]:
+        - article [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e71]: basic-coffee-shop.vercel.app
+            - generic [ref=e72]:
+              - img "Captura real do site Basic Coffee" [ref=e73]
+              - link "Abrir Basic Coffee em uma nova aba" [ref=e74] [cursor=pointer]:
+                - /url: https://basic-coffee-shop.vercel.app/br/
+          - generic [ref=e75]:
+            - generic [ref=e76]: "01"
+            - text: Cafeteria • site institucional
+            - heading "Basic Coffee" [level=3] [ref=e77]
+            - paragraph [ref=e78]: "Uma presença digital editorial para uma cafeteria: menu, história, localização e experiência de marca organizados em uma navegação simples e visual."
+            - generic "Escopo de Basic Coffee" [ref=e79]:
+              - generic [ref=e80]: Redesign
+              - generic [ref=e81]: PT + DE
+              - generic [ref=e82]: SEO local
+              - generic [ref=e83]: Mobile
+            - link "Visitar site" [ref=e84] [cursor=pointer]:
+              - /url: https://basic-coffee-shop.vercel.app/br/
+        - article [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e95]: s2-seguros-saude.vercel.app
+            - generic [ref=e96]:
+              - img "Captura real do site S2 Seguros Saúde" [ref=e97]
+              - link "Abrir S2 Seguros Saúde em uma nova aba" [ref=e98] [cursor=pointer]:
+                - /url: https://s2-seguros-saude.vercel.app/
+          - generic [ref=e99]:
+            - generic [ref=e100]: "02"
+            - text: Saúde • site institucional
+            - heading "S2 Seguros Saúde" [level=3] [ref=e101]
+            - paragraph [ref=e102]: "Redesign pensado para transformar um serviço complexo em uma jornada clara: produtos, explicações, dúvidas e caminhos de contato sem deixar o visitante perdido."
+            - generic "Escopo de S2 Seguros Saúde" [ref=e103]:
+              - generic [ref=e104]: UX
+              - generic [ref=e105]: Conversão
+              - generic [ref=e106]: Conteúdo
+              - generic [ref=e107]: SEO
+            - link "Visitar site" [ref=e108] [cursor=pointer]:
+              - /url: https://s2-seguros-saude.vercel.app/
+        - article [ref=e113]:
+          - generic [ref=e114]:
+            - generic [ref=e119]: raquel-carrd.vercel.app
+            - generic [ref=e120]:
+              - img "Captura real do site Raquel Santiago" [ref=e121]
+              - link "Abrir Raquel Santiago em uma nova aba" [ref=e122] [cursor=pointer]:
+                - /url: https://raquel-carrd.vercel.app/
+          - generic [ref=e123]:
+            - generic [ref=e124]: "03"
+            - text: Fisioterapia • cartão digital
+            - heading "Raquel Santiago" [level=3] [ref=e125]
+            - paragraph [ref=e126]: Um cartão digital mobile-first para concentrar apresentação profissional, serviços e atalhos de contato em uma página compacta e fácil de compartilhar.
+            - generic "Escopo de Raquel Santiago" [ref=e127]:
+              - generic [ref=e128]: Mobile-first
+              - generic [ref=e129]: WhatsApp
+              - generic [ref=e130]: vCard
+              - generic [ref=e131]: Marca pessoal
+            - link "Visitar site" [ref=e132] [cursor=pointer]:
+              - /url: https://raquel-carrd.vercel.app/
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - generic [ref=e139]:
+          - text: 02 / O QUE EU FAÇO
+          - heading [level=2] [ref=e140]:
+            - text: Um site não precisa ser enorme.
+            - emphasis [ref=e141]: Precisa fazer sentido.
+        - paragraph [ref=e142]: Eu ajusto estrutura, visual e conteúdo ao que seu negócio realmente precisa — sem empilhar páginas ou efeitos só para parecer mais complexo.
+      - generic [ref=e143]:
+        - article [ref=e144]:
+          - generic [ref=e145]: "01"
+          - heading "Sites institucionais" [level=3] [ref=e150]
+          - paragraph [ref=e151]: Uma apresentação própria para sua empresa explicar o que faz, passar confiança e facilitar o próximo contato.
+        - article [ref=e152]:
+          - generic [ref=e153]: "02"
+          - heading "Landing pages" [level=3] [ref=e158]
+          - paragraph [ref=e159]: Páginas enxutas, com uma oferta clara e um caminho de ação pensado para campanhas, serviços ou prospecção.
+        - article [ref=e160]:
+          - generic [ref=e161]: "03"
+          - heading "Redesign responsivo" [level=3] [ref=e164]
+          - paragraph [ref=e165]: Reorganizo sites que ficaram datados ou confusos, cuidando da experiência tanto no celular quanto no desktop.
+        - article [ref=e166]:
+          - generic [ref=e167]: "04"
+          - heading "SEO on-page" [level=3] [ref=e171]
+          - paragraph [ref=e172]: Estrutura, títulos, conteúdo e detalhes técnicos preparados para o Google entender melhor cada página.
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - text: 03 / PROCESSO
+        - heading [level=2] [ref=e176]:
+          - text: Você me conta o negócio.
+          - emphasis [ref=e177]: Eu organizo o digital.
+        - paragraph [ref=e178]: Não precisa chegar com briefing perfeito, textos prontos ou saber o nome de cada parte do site. A ideia é tirar esse peso de você.
+      - list [ref=e179]:
+        - listitem [ref=e180]:
+          - generic [ref=e181]: "01"
+          - generic [ref=e182]:
+            - strong [ref=e183]: Entendo o contexto
+            - paragraph [ref=e184]: O que você vende, para quem, o que já existe e qual é a prioridade.
+        - listitem [ref=e185]:
+          - generic [ref=e186]: "02"
+          - generic [ref=e187]:
+            - strong [ref=e188]: Defino a direção
+            - paragraph [ref=e189]: Estrutura, referências, conteúdo e identidade antes de sair construindo.
+        - listitem [ref=e190]:
+          - generic [ref=e191]: "03"
+          - generic [ref=e192]:
+            - strong [ref=e193]: Construo e adapto
+            - paragraph [ref=e194]: Design e desenvolvimento responsivo, com revisão em desktop e celular.
+        - listitem [ref=e195]:
+          - generic [ref=e196]: "04"
+          - generic [ref=e197]:
+            - strong [ref=e198]: Publico e refino
+            - paragraph [ref=e199]: Links, SEO básico, domínio e detalhes finais conferidos antes de entregar.
+    - generic [ref=e201]:
+      - generic [ref=e202]:
+        - img "Julia em um ambiente de trabalho, com notebook à frente" [ref=e203]
+        - generic [ref=e204]: JULIA / WEB DESIGN
+      - generic [ref=e205]:
+        - text: 04 / SOBRE
+        - heading [level=2] [ref=e206]:
+          - text: Eu gosto de site bonito.
+          - emphasis [ref=e207]: Mas gosto mais quando ele resolve alguma coisa.
+        - paragraph [ref=e208]: Trabalho com design e desenvolvimento para transformar negócios que hoje dependem só de Instagram, WhatsApp ou um site antigo em uma presença digital própria, organizada e convincente.
+        - paragraph [ref=e209]: Meu processo mistura olhar visual, código e estratégia. Como web designer no Rio de Janeiro, atendo projetos locais e também trabalho de forma remota com empresas de outras regiões do Brasil.
+        - generic [ref=e210]:
+          - generic [ref=e211]: sem template genérico
+          - generic [ref=e214]: feito para seu conteúdo real
+          - generic [ref=e217]: mobile desde o começo
+    - generic [ref=e221]:
+      - generic [ref=e222]:
+        - text: 05 / DÚVIDAS
+        - heading "Antes de você perguntar." [level=2] [ref=e223]
+        - paragraph [ref=e224]: As dúvidas que mais costumam aparecer quando uma empresa começa a pensar em ter — ou refazer — o próprio site.
+      - generic [ref=e225]:
+        - group [ref=e226]:
+          - generic "Já tenho Instagram. Ainda faz sentido ter site? +" [ref=e227] [cursor=pointer]
+        - group [ref=e228]:
+          - generic "Não tenho fotos ou textos prontos. E agora? +" [ref=e229] [cursor=pointer]
+        - group [ref=e230]:
+          - generic "O site funciona bem no celular? +" [ref=e231] [cursor=pointer]
+        - group [ref=e232]:
+          - generic "Quanto tempo leva para ficar pronto? +" [ref=e233] [cursor=pointer]
+        - group [ref=e234]:
+          - generic "Posso começar com uma estrutura menor? +" [ref=e235] [cursor=pointer]
+    - generic [ref=e237]:
+      - text: 06 / SEU PROJETO
+      - heading [level=2] [ref=e238]:
+        - text: Seu negócio pode ser
+        - emphasis [ref=e239]: o próximo daqui.
+      - paragraph [ref=e240]: Me conta o nome da empresa, o que vocês fazem e o que você gostaria que o site ajudasse a melhorar. Eu consigo partir daí.
+      - generic [ref=e241]:
+        - link "Me contar sobre o projeto" [ref=e242] [cursor=pointer]:
+          - /url: mailto:solara.julia.a@gmail.com?subject=Quero%20conversar%20sobre%20um%20site
+        - link "Rever os projetos" [ref=e246] [cursor=pointer]:
+          - /url: "#projetos"
+      - generic [ref=e247]: Se eu te enviei este portfólio pelo WhatsApp, pode simplesmente me responder por lá — eu continuo a conversa com o contexto do seu negócio.
+      - text: J.
+  - contentinfo [ref=e248]:
+    - generic [ref=e249]:
+      - generic [ref=e250]: J.
+      - generic [ref=e251]:
+        - strong [ref=e252]: Julia Web Design
+        - generic [ref=e253]: Criação de sites profissionais • RJ + Brasil
+    - generic [ref=e254]:
+      - link "Topo" [ref=e255] [cursor=pointer]:
+        - /url: "#inicio"
+      - link "GitHub" [ref=e256] [cursor=pointer]:
+        - /url: https://github.com/kittishy
+      - link "E-mail" [ref=e257] [cursor=pointer]:
+        - /url: mailto:solara.julia.a@gmail.com
+    - generic [ref=e258]: © 2026 Julia. Design & desenvolvimento.

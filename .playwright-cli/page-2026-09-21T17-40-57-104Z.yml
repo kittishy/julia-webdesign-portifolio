@@ -1,0 +1,35 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: J.
+      - generic [ref=e6]:
+        - strong [ref=e7]: Julia Freitas
+        - generic [ref=e8]: Design e desenvolvimento
+    - generic [ref=e9]: Portfólio 2026
+  - generic [ref=e10]:
+    - generic [ref=e11]: Projetos reais
+    - heading [level=1] [ref=e12]:
+      - text: Antes de contratar,
+      - emphasis [ref=e13]: conheça meu trabalho.
+    - paragraph [ref=e14]: Sites com identidade, conteúdo organizado e uma experiência pensada para funcionar em cada tela.
+  - region "Projetos selecionados" [ref=e15]:
+    - article [ref=e16]:
+      - img "Projeto Basic Coffee" [ref=e21]
+    - article [ref=e22]:
+      - img "Projeto S2 Seguros Saúde" [ref=e27]
+    - article [ref=e28]:
+      - img "Projeto Raquel Santiago" [ref=e33]
+  - generic [ref=e34]:
+    - generic [ref=e39]:
+      - strong [ref=e40]: Design com propósito
+      - generic [ref=e41]: Visual alinhado ao negócio
+    - generic [ref=e47]:
+      - strong [ref=e48]: Experiência responsiva
+      - generic [ref=e49]: Celular e computador
+    - generic [ref=e54]:
+      - strong [ref=e55]: Contato mais acessível
+      - generic [ref=e56]: Caminhos claros para conversar
+  - generic [ref=e57]:
+    - paragraph [ref=e58]: Seu próximo site começa com uma conversa.
+    - generic [ref=e59]: Veja meu portfólio ↗
+    - generic [ref=e60]: julia-webdesign.vercel.app

@@ -6,11 +6,15 @@ import {
   ExternalLink,
   LayoutTemplate,
   Mail,
+  MessageCircle,
   Menu,
   Search,
   Smartphone,
   X,
 } from "lucide-react";
+
+const whatsappUrl = `https://wa.me/5521967225291?text=${encodeURIComponent("Oi, Julia! Vi seu portfólio e quero conversar sobre um site para o meu negócio.")}`;
+const emailUrl = "mailto:solara.julia.a@gmail.com?subject=Quero%20conversar%20sobre%20um%20site";
 
 const projects = [
   {
@@ -19,8 +23,11 @@ const projects = [
     eyebrow: "Cafeteria • site institucional",
     url: "https://basic-coffee-shop.vercel.app/br/",
     description:
-      "Uma presença digital editorial para uma cafeteria: menu, história, localização e experiência de marca organizados em uma navegação simples e visual.",
-    scope: ["Redesign", "PT + DE", "SEO local", "Mobile"],
+      "Site para uma cafeteria em Marburg, com cardápio, história e informações de visita reunidos em uma apresentação que valoriza a marca.",
+    scope: ["Cardápio", "Conteúdo", "Localização"],
+    context: "Apresentar a cafeteria e ajudar quem quer escolher o que consumir ou planejar uma visita.",
+    decision: "Cardápio, história e informações de visita têm caminhos próprios, com fotografia e tipografia em destaque.",
+    delivery: "Categorias de produtos, horários, endereço e atalhos para rota e pedido online.",
     tone: "coffee",
     image: "/projects/screenshots/basic-coffee.png",
     fallbackImage: "/projects/basic-coffee.webp",
@@ -31,8 +38,11 @@ const projects = [
     eyebrow: "Saúde • site institucional",
     url: "https://s2-seguros-saude.vercel.app/",
     description:
-      "Redesign pensado para transformar um serviço complexo em uma jornada clara: produtos, explicações, dúvidas e caminhos de contato sem deixar o visitante perdido.",
-    scope: ["UX", "Conversão", "Conteúdo", "SEO"],
+      "Uma apresentação clara dos planos, com um caminho guiado até a solicitação de cotação pelo WhatsApp.",
+    scope: ["Design responsivo", "Formulário", "WhatsApp"],
+    context: "Organizar diferentes categorias de planos e facilitar uma conversa com as informações iniciais do interessado.",
+    decision: "A seleção de um plano já indica essa opção no formulário. Antes de abrir o WhatsApp, o visitante pode revisar e editar a mensagem.",
+    delivery: "Formulário com validação, prévia da mensagem, perguntas frequentes e página de privacidade.",
     tone: "health",
     image: "/projects/screenshots/s2-saude.png",
     fallbackImage: "/projects/s2-saude.webp",
@@ -41,10 +51,13 @@ const projects = [
     index: "03",
     title: "Raquel Santiago",
     eyebrow: "Fisioterapia • cartão digital",
-    url: "https://raquel-carrd.vercel.app/",
+    url: "https://cartao-raquel.vercel.app/",
     description:
-      "Um cartão digital mobile-first para concentrar apresentação profissional, serviços e atalhos de contato em uma página compacta e fácil de compartilhar.",
-    scope: ["Mobile-first", "WhatsApp", "vCard", "Marca pessoal"],
+      "A identidade de um cartão profissional transformada em uma experiência digital prática para apresentar serviços e facilitar o contato.",
+    scope: ["Design para celular", "WhatsApp", "Contato na agenda"],
+    context: "Levar a identidade visual de um cartão do Canva para a web, mantendo a personalidade da profissional.",
+    decision: "Preservar fotografia, florais e paleta, adaptando a composição ao celular e ao computador, com ações de contato em destaque.",
+    delivery: "Cartão adaptado a diferentes telas, página de serviços, contato para salvar na agenda e opções de compartilhamento do link.",
     tone: "care",
     image: "/projects/screenshots/raquel.png",
     fallbackImage: "/projects/raquel.jpg",
@@ -55,22 +68,22 @@ const services = [
   {
     icon: LayoutTemplate,
     title: "Sites institucionais",
-    text: "Uma apresentação própria para sua empresa explicar o que faz, passar confiança e facilitar o próximo contato.",
+    text: "Apresente sua empresa, organize seus serviços e reúna as informações que o cliente precisa para entrar em contato.",
   },
   {
     icon: Code2,
     title: "Landing pages",
-    text: "Páginas enxutas, com uma oferta clara e um caminho de ação pensado para campanhas, serviços ou prospecção.",
+    text: "Dê destaque a um serviço ou uma campanha em uma página com mensagem objetiva e convite claro para solicitar um orçamento.",
   },
   {
     icon: Smartphone,
-    title: "Redesign responsivo",
-    text: "Reorganizo sites que ficaram datados ou confusos, cuidando da experiência tanto no celular quanto no desktop.",
+    title: "Reformulação de sites",
+    text: "Atualize o visual e reorganize o conteúdo de um site existente, com navegação adaptada ao celular e ao computador.",
   },
   {
     icon: Search,
-    title: "SEO on-page",
-    text: "Estrutura, títulos, conteúdo e detalhes técnicos preparados para o Google entender melhor cada página.",
+    title: "SEO na estrutura do site",
+    text: "Títulos, descrições e conteúdo organizados para ajudar os mecanismos de busca a compreender suas páginas e seus serviços.",
   },
 ];
 
@@ -159,11 +172,11 @@ function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Julia Web Design — início">
+        <a className="brand" href="#inicio" aria-label="Julia Freitas — início">
           <span className="brand-mark">J.</span>
           <span className="brand-copy">
-            <strong>Julia</strong>
-            <small>Web Design</small>
+            <strong>Julia Freitas</strong>
+            <small>Design e desenvolvimento</small>
           </span>
         </a>
 
@@ -174,8 +187,8 @@ function App() {
           <a href="#sobre">Sobre</a>
         </nav>
 
-        <a className="header-cta" href="#contato">
-          Vamos conversar <ArrowUpRight size={16} aria-hidden="true" />
+        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
+          Solicitar orçamento <MessageCircle size={18} aria-hidden="true" />
         </a>
 
         <button
@@ -208,51 +221,37 @@ function App() {
         <section className="hero" id="inicio">
           <div className="hero-grid">
             <div className="hero-copy reveal is-visible">
-              <div className="eyebrow"><span /> CRIAÇÃO DE SITES • RIO DE JANEIRO</div>
+              <div className="eyebrow"><span /> WEB DESIGN · RIO DE JANEIRO</div>
               <h1>
-                Sites que fazem seu negócio parecer <em>tão bom quanto ele é.</em>
+                Criação de sites profissionais <em>para o seu negócio.</em>
               </h1>
               <p className="hero-lead">
-                Crio sites profissionais e landing pages para empresas que querem passar confiança, explicar melhor o que fazem e transformar visita em conversa.
+                Transformo seus serviços em uma apresentação clara, com identidade visual, navegação simples e contato acessível. Sites institucionais e landing pages feitos para funcionar no celular e no computador.
               </p>
               <div className="hero-actions">
-                <a className="button button--primary" href="#projetos">
-                  Ver projetos reais <ArrowUpRight size={18} aria-hidden="true" />
+                <a className="button button--primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+                  Solicitar orçamento <MessageCircle size={18} aria-hidden="true" />
                 </a>
-                <a className="button button--ghost" href="#contato">Quero um site assim</a>
+                <a className="button button--ghost" href="#projetos">Conhecer os projetos <ArrowUpRight size={18} aria-hidden="true" /></a>
               </div>
               <div className="hero-note">
-                <Check size={16} aria-hidden="true" /> Design, desenvolvimento, mobile e SEO pensados em conjunto.
+                Rio de Janeiro · Atendimento remoto para todo o Brasil
               </div>
             </div>
 
-            <div className="hero-visual reveal is-visible">
+            <figure className="hero-visual reveal is-visible">
               <div className="portrait-frame">
-                <img src="/julia-hero.webp?v=3" alt="Julia, web designer, em retrato profissional" width="760" height="950" fetchPriority="high" loading="eager" decoding="async" />
-                <div className="portrait-overlay" />
-                <div className="portrait-label">
-                  <small>PORTFÓLIO</small>
-                  <strong>2026</strong>
-                </div>
+                <img src="/julia-original.png" alt="Julia Freitas, web designer e desenvolvedora de sites" width="941" height="1672" loading="eager" decoding="async" />
               </div>
-              <div className="floating-card floating-card--location">
-                <span>BASE</span>
-                <strong>Rio de Janeiro</strong>
-                <small>atendimento remoto • Brasil</small>
-              </div>
-              <div className="floating-card floating-card--work">
-                <span>AGORA</span>
-                <strong>Projetos selecionados</strong>
-                <small>3 trabalhos publicados ↓</small>
-              </div>
-            </div>
+              <figcaption><strong>Julia Freitas</strong><span>Web designer e desenvolvedora</span></figcaption>
+            </figure>
           </div>
 
           <div className="trust-strip" aria-label="Diferenciais">
-            <span><strong>3</strong> projetos publicados</span>
-            <span>Sites responsivos</span>
-            <span>SEO on-page</span>
-            <span>Experiência mobile</span>
+            <span><strong>3</strong> projetos selecionados</span>
+            <span>Design + desenvolvimento</span>
+            <span>Feito para cada negócio</span>
+            <span>Computador e celular</span>
           </div>
         </section>
 
@@ -260,9 +259,9 @@ function App() {
           <div className="section-heading reveal">
             <div>
               <span className="section-kicker">01 / PROJETOS</span>
-              <h2>Não é promessa. <em>É trabalho aberto para você clicar.</em></h2>
+              <h2>Sites desenvolvidos para <em>diferentes negócios.</em></h2>
             </div>
-            <p>Três projetos diferentes, pensados para negócios diferentes. Abra qualquer um deles e veja o site funcionando de verdade.</p>
+            <p>Conheça o contexto, as decisões de design e os recursos de cada projeto. Acesse os sites para explorar a navegação e os detalhes.</p>
           </div>
 
           <div className="projects-list">
@@ -277,8 +276,13 @@ function App() {
                   <div className="tag-list" aria-label={`Escopo de ${project.title}`}>
                     {project.scope.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
+                  <dl className="project-case">
+                    <div><dt>O contexto</dt><dd>{project.context}</dd></div>
+                    <div><dt>A escolha</dt><dd>{project.decision}</dd></div>
+                    <div><dt>A entrega</dt><dd>{project.delivery}</dd></div>
+                  </dl>
                   <a className="text-link" href={project.url} target="_blank" rel="noreferrer">
-                    Visitar site <ExternalLink size={16} aria-hidden="true" />
+                    Explorar o projeto <ExternalLink size={16} aria-hidden="true" />
                   </a>
                 </div>
               </article>
@@ -290,9 +294,9 @@ function App() {
           <div className="section-heading reveal">
             <div>
               <span className="section-kicker">02 / O QUE EU FAÇO</span>
-              <h2>Um site não precisa ser enorme. <em>Precisa fazer sentido.</em></h2>
+              <h2>Design e desenvolvimento <em>para a sua presença digital.</em></h2>
             </div>
-            <p>Eu ajusto estrutura, visual e conteúdo ao que seu negócio realmente precisa — sem empilhar páginas ou efeitos só para parecer mais complexo.</p>
+            <p>Um novo site, uma página para divulgar um serviço ou a reformulação do que já existe. O ponto de partida é o que sua empresa precisa comunicar.</p>
           </div>
 
           <div className="services-grid">
@@ -311,37 +315,38 @@ function App() {
           <div className="process-panel reveal">
             <div className="process-intro">
               <span className="section-kicker">03 / PROCESSO</span>
-              <h2>Você me conta o negócio. <em>Eu organizo o digital.</em></h2>
-              <p>Não precisa chegar com briefing perfeito, textos prontos ou saber o nome de cada parte do site. A ideia é tirar esse peso de você.</p>
+              <h2>Do primeiro contato <em>à publicação.</em></h2>
+              <p>Você apresenta seu negócio e seus objetivos. A partir dessa conversa, organizamos o conteúdo, definimos o escopo e combinamos as etapas do projeto.</p>
             </div>
             <ol className="process-list">
-              <li><span>01</span><div><strong>Entendo o contexto</strong><p>O que você vende, para quem, o que já existe e qual é a prioridade.</p></div></li>
-              <li><span>02</span><div><strong>Defino a direção</strong><p>Estrutura, referências, conteúdo e identidade antes de sair construindo.</p></div></li>
-              <li><span>03</span><div><strong>Construo e adapto</strong><p>Design e desenvolvimento responsivo, com revisão em desktop e celular.</p></div></li>
-              <li><span>04</span><div><strong>Publico e refino</strong><p>Links, SEO básico, domínio e detalhes finais conferidos antes de entregar.</p></div></li>
+              <li><span>01</span><div><strong>Entendimento do negócio</strong><p>Conversamos sobre seus serviços, seu público e o que o site precisa facilitar para o cliente.</p></div></li>
+              <li><span>02</span><div><strong>Estrutura e direção visual</strong><p>Definimos as páginas, a organização do conteúdo e as referências visuais que vão orientar o trabalho.</p></div></li>
+              <li><span>03</span><div><strong>Design e desenvolvimento</strong><p>Construo a interface e adapto a navegação às diferentes telas, com atenção à leitura e aos caminhos de contato.</p></div></li>
+              <li><span>04</span><div><strong>Revisão e publicação</strong><p>Confiro conteúdo, links e funcionamento antes de publicar a versão final, conforme o escopo combinado.</p></div></li>
             </ol>
           </div>
         </section>
 
         <section className="section about-section" id="sobre">
           <div className="about-grid reveal">
-            <div className="about-photo">
-              <img src="/julia-about.webp?v=3" alt="Julia em um retrato casual usado no portfólio" width="760" height="950" loading="lazy" decoding="async" />
-              <span className="about-stamp">JULIA / WEB DESIGN</span>
+            <div className="about-note">
+              <span className="section-kicker">DESIGN + CÓDIGO</span>
+              <p>Clareza para apresentar.<br /><em>Cuidado para desenvolver.</em></p>
+              <span className="about-signature">Julia Freitas<span>Web design · Rio de Janeiro</span></span>
             </div>
             <div className="about-copy">
               <span className="section-kicker">04 / SOBRE</span>
-              <h2>Eu gosto de site bonito. <em>Mas gosto mais quando ele resolve alguma coisa.</em></h2>
+              <h2>Sou <em>Julia Freitas.</em></h2>
               <p>
-                Trabalho com design e desenvolvimento para transformar negócios que hoje dependem só de Instagram, WhatsApp ou um site antigo em uma presença digital própria, organizada e convincente.
+                Sou web designer e desenvolvedora de sites no Rio de Janeiro, com atendimento remoto em todo o Brasil. Meu trabalho reúne organização de conteúdo, design de interfaces e desenvolvimento para apresentar cada negócio com clareza.
               </p>
               <p>
-                Meu processo mistura olhar visual, código e estratégia. Como web designer no Rio de Janeiro, atendo projetos locais e também trabalho de forma remota com empresas de outras regiões do Brasil.
+                Uma cafeteria precisa facilitar a consulta ao cardápio. Uma profissional de saúde precisa apresentar seus serviços e tornar o contato acessível. É a partir dessas necessidades que defino a estrutura e a linguagem de cada projeto.
               </p>
               <div className="about-points">
-                <span><Check size={15} /> sem template genérico</span>
-                <span><Check size={15} /> feito para seu conteúdo real</span>
-                <span><Check size={15} /> mobile desde o começo</span>
+                <span><Check size={15} aria-hidden="true" /> Design e desenvolvimento</span>
+                <span><Check size={15} aria-hidden="true" /> Conteúdo organizado</span>
+                <span><Check size={15} aria-hidden="true" /> Atenção ao celular</span>
               </div>
             </div>
           </div>
@@ -351,29 +356,29 @@ function App() {
           <div className="faq-grid">
             <div className="faq-intro reveal">
               <span className="section-kicker">05 / DÚVIDAS</span>
-              <h2>Antes de você perguntar.</h2>
-              <p>As dúvidas que mais costumam aparecer quando uma empresa começa a pensar em ter — ou refazer — o próprio site.</p>
+              <h2>Dúvidas <em>frequentes.</em></h2>
+              <p>Informações para planejar a criação ou a reformulação do seu site.</p>
             </div>
             <div className="faq-list reveal">
               <details>
-                <summary>Já tenho Instagram. Ainda faz sentido ter site?</summary>
-                <p>Sim, se você quer um lugar próprio para reunir serviços, informações e contato. O Instagram continua ajudando na descoberta; o site organiza a apresentação quando alguém quer entender melhor a empresa.</p>
+                <summary>Minha empresa já tem Instagram. Por que criar um site?</summary>
+                <p>O site reúne seus serviços, informações e canais de contato em um endereço próprio. Ele complementa as redes sociais e oferece uma apresentação organizada para quem quer conhecer sua empresa antes de conversar.</p>
               </details>
               <details>
-                <summary>Não tenho fotos ou textos prontos. E agora?</summary>
-                <p>A gente começa pelo que já existe. Eu organizo o material, aproveito o que faz sentido e deixo claro o que realmente falta antes de travar o projeto por detalhes.</p>
+                <summary>Preciso ter os textos e as fotos antes de começar?</summary>
+                <p>Você pode começar com o material que já possui. Na conversa inicial, avaliamos o que pode ser aproveitado e o que precisa ser produzido. O trabalho com textos e imagens é definido no escopo da proposta.</p>
               </details>
               <details>
                 <summary>O site funciona bem no celular?</summary>
-                <p>Sim. A adaptação mobile faz parte da construção desde o início, não é uma versão improvisada depois que o desktop fica pronto.</p>
+                <p>Sim. O layout é adaptado ao celular e ao computador, com revisão da leitura, dos menus, dos botões e dos caminhos de contato em diferentes tamanhos de tela.</p>
               </details>
               <details>
-                <summary>Quanto tempo leva para ficar pronto?</summary>
-                <p>Depende do tamanho do site e dos materiais disponíveis. O prazo é definido junto com o escopo antes de começar, para você saber exatamente o que esperar.</p>
+                <summary>Quanto custa criar um site e qual é o prazo?</summary>
+                <p>O valor e o prazo dependem do número de páginas, dos recursos e do conteúdo necessário. Após entender o projeto, apresento uma proposta com escopo, investimento e etapas definidos antes do início do trabalho.</p>
               </details>
               <details>
-                <summary>Posso começar com uma estrutura menor?</summary>
-                <p>Pode. Muitas empresas ficam melhor com uma landing page ou um site institucional enxuto do que com várias páginas sem função. A estrutura cresce quando o negócio realmente pede.</p>
+                <summary>Qual é a diferença entre site institucional e landing page?</summary>
+                <p>O site institucional apresenta a empresa e seus serviços de forma mais ampla. A landing page concentra a mensagem em uma oferta ou ação, como solicitar um orçamento. A escolha depende do objetivo e do conteúdo do projeto.</p>
               </details>
             </div>
           </div>
@@ -382,17 +387,17 @@ function App() {
         <section className="section contact-section" id="contato">
           <div className="contact-card reveal">
             <span className="section-kicker">06 / SEU PROJETO</span>
-            <h2>Seu negócio pode ser <em>o próximo daqui.</em></h2>
+            <h2>Vamos conversar <em>sobre seu site?</em></h2>
             <p>
-              Me conta o nome da empresa, o que vocês fazem e o que você gostaria que o site ajudasse a melhorar. Eu consigo partir daí.
+              Conte o que sua empresa faz e se você precisa criar um site ou reformular o atual. Com essas informações, podemos definir o escopo e preparar uma proposta para o seu projeto.
             </p>
             <div className="contact-actions">
-              <a className="button button--primary button--large" href="mailto:solara.julia.a@gmail.com?subject=Quero%20conversar%20sobre%20um%20site">
-                <Mail size={18} aria-hidden="true" /> Me contar sobre o projeto
+              <a className="button button--primary button--large" href={whatsappUrl} target="_blank" rel="noreferrer">
+                <MessageCircle size={18} aria-hidden="true" /> Solicitar orçamento
               </a>
-              <a className="button button--ghost button--large" href="#projetos">Rever os projetos</a>
+              <a className="button button--ghost button--large" href={emailUrl}><Mail size={18} aria-hidden="true" /> Prefiro enviar um e-mail</a>
             </div>
-            <small>Se eu te enviei este portfólio pelo WhatsApp, pode simplesmente me responder por lá — eu continuo a conversa com o contexto do seu negócio.</small>
+            <small>Atendimento direto com Julia Freitas pelo WhatsApp: (21) 96722-5291. A primeira conversa serve para entender sua necessidade e definir os próximos passos.</small>
           </div>
         </section>
       </main>
@@ -400,14 +405,15 @@ function App() {
       <footer className="site-footer">
         <div className="footer-brand">
           <span className="brand-mark">J.</span>
-          <div><strong>Julia Web Design</strong><small>Criação de sites profissionais • RJ + Brasil</small></div>
+          <div><strong>Julia Freitas</strong><small>Criação de sites no Rio de Janeiro · Atendimento em todo o Brasil</small></div>
         </div>
         <div className="footer-links">
           <a href="#inicio">Topo</a>
           <a href="https://github.com/kittishy" target="_blank" rel="noreferrer">GitHub</a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
           <a href="mailto:solara.julia.a@gmail.com">E-mail</a>
         </div>
-        <small>© 2026 Julia. Design & desenvolvimento.</small>
+        <small>© 2026 Julia Freitas. Design e desenvolvimento.</small>
       </footer>
     </div>
   );

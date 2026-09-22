@@ -1,0 +1,2 @@
+const { chromium } = require('C:/Users/isand/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+(async()=>{const b=await chromium.launch({headless:true,channel:'chrome'});for(const [name,width,height] of [['desktop',1440,950],['mobile',390,844]]){const p=await b.newPage({viewport:{width,height},deviceScaleFactor:2});await p.goto('https://julia-webdesign.vercel.app/',{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);await p.screenshot({path:__dirname+'/julia-'+name+'.png'});await p.close();}await b.close();})();

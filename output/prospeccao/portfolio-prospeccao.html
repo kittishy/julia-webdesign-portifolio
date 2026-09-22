@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Julia Freitas - Portfólio para prospecção</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+      :root {
+        --bg: #0b0b0b;
+        --surface: #141210;
+        --cream: #f4f0e9;
+        --muted: #aaa59d;
+        --orange: #ff693d;
+        --line: rgba(244, 240, 233, 0.13);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1350px; overflow: hidden; }
+      body { background: var(--bg); color: var(--cream); font-family: Inter, Arial, sans-serif; }
+
+      .art {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        padding: 72px 76px 58px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 96% 13%, rgba(255,105,61,.16), transparent 25%),
+          radial-gradient(circle at -5% 91%, rgba(255,105,61,.09), transparent 28%),
+          var(--bg);
+      }
+
+      .ring { position: absolute; border: 1px solid rgba(255,105,61,.13); border-radius: 50%; pointer-events: none; }
+      .ring.one { width: 530px; height: 530px; right: -310px; top: -200px; box-shadow: inset 0 0 0 94px rgba(255,105,61,.018), inset 0 0 0 188px rgba(255,105,61,.012); }
+      .ring.two { width: 310px; height: 310px; left: -210px; bottom: -95px; }
+
+      header { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2; }
+      .brand { display: flex; align-items: center; gap: 14px; }
+      .mark { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--orange); color: #0b0b0b; font: 700 24px/1 "Space Grotesk", sans-serif; }
+      .name { display: grid; gap: 4px; }
+      .name strong { font: 600 20px/1 "Space Grotesk", sans-serif; }
+      .name span, .overline { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      .header-note { color: var(--muted); font-size: 12px; letter-spacing: .11em; text-transform: uppercase; }
+
+      .hero { position: relative; z-index: 2; margin-top: 68px; max-width: 870px; }
+      .overline { display: flex; align-items: center; gap: 10px; color: #c7c0b7; }
+      .overline::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 6px rgba(255,105,61,.1); }
+      h1 { margin: 24px 0 18px; font: 700 77px/.94 "Space Grotesk", Arial, sans-serif; letter-spacing: -.055em; }
+      h1 em { color: var(--orange); font-style: normal; }
+      .lead { margin: 0; max-width: 720px; color: #c7c1b9; font-size: 20px; line-height: 1.55; }
+
+      .work { position: relative; height: 475px; margin-top: 50px; }
+      .shot {
+        position: absolute;
+        overflow: hidden;
+        background: #171717;
+        border: 1px solid rgba(255,255,255,.14);
+        border-radius: 18px;
+        box-shadow: 0 32px 80px rgba(0,0,0,.52);
+      }
+      .shot::before { content: ""; position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, transparent 63%, rgba(0,0,0,.32)); pointer-events: none; }
+      .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+      .shot.main { width: 610px; height: 390px; left: 0; top: 36px; transform: rotate(-1.2deg); z-index: 2; }
+      .shot.side { width: 330px; height: 392px; right: 4px; top: 5px; transform: rotate(2.4deg); z-index: 3; }
+      .shot.back { width: 385px; height: 245px; right: 190px; bottom: 0; transform: rotate(-4deg); z-index: 1; filter: brightness(.78); }
+      .browser { position: absolute; z-index: 4; left: 14px; top: 12px; display: flex; gap: 6px; }
+      .browser span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.36); }
+      .browser span:first-child { background: var(--orange); }
+
+      .benefits { position: relative; z-index: 5; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: -2px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .benefit { min-height: 93px; padding: 22px 19px; display: grid; grid-template-columns: 29px 1fr; gap: 11px; align-items: center; border-right: 1px solid var(--line); }
+      .benefit:last-child { border-right: 0; }
+      .icon { width: 28px; height: 28px; color: var(--orange); }
+      .benefit strong { display: block; font: 600 15px/1.25 "Space Grotesk", sans-serif; }
+      .benefit small { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.35; }
+
+      footer { position: relative; z-index: 5; margin-top: 34px; display: grid; justify-items: center; gap: 14px; text-align: center; }
+      .closing { margin: 0; font: 600 25px/1.25 "Space Grotesk", sans-serif; }
+      .cta { min-width: 350px; padding: 17px 30px; border-radius: 999px; background: var(--orange); color: #0b0b0b; font-size: 15px; font-weight: 700; }
+      .url { color: #c9c3bb; font-size: 14px; letter-spacing: .035em; }
+      .art { padding: 48px 60px; }
+      .hero { margin-top: 32px; max-width: 960px; }
+      h1 { font-size: 56px; margin: 18px 0 14px; }
+      .lead { font-size: 18px; max-width: 860px; }
+      .work { height: auto; margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+      .shot, .shot.main, .shot.side, .shot.back { position: relative; inset: auto; width: auto; height: auto; transform: none; filter: none; border-radius: 10px; box-shadow: none; z-index: auto; background: #191817; }
+      .shot.main { grid-column: 1 / -1; width: 680px; justify-self: center; }
+      .shot::before, .browser { display: none; }
+      .shot img { width: 100%; height: auto; aspect-ratio: 1.6; object-fit: contain; }
+      .project-label { height: 40px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 600; }
+      .project-label span { color: var(--muted); font-size: 11px; font-weight: 400; }
+      .benefits { display: none; }
+      footer { margin-top: 26px; gap: 10px; }
+      .closing { font-size: 21px; }
+      .cta { padding: 14px 28px; }
+    </style>
+  </head>
+  <body>
+    <main class="art">
+      <div class="ring one"></div>
+      <div class="ring two"></div>
+
+      <header>
+        <div class="brand">
+          <span class="mark">J.</span>
+          <span class="name"><strong>Julia Freitas</strong><span>Design e desenvolvimento</span></span>
+        </div>
+        <span class="header-note">Portfólio 2026</span>
+      </header>
+
+      <section class="hero">
+        <span class="overline">Projetos reais</span>
+        <h1>Antes de contratar,<br /><em>conheça meu trabalho.</em></h1>
+        <p class="lead">Sites com identidade, conteúdo organizado e uma experiência pensada para funcionar em cada tela.</p>
+      </section>
+
+      <section class="work" aria-label="Projetos selecionados">
+        <article class="shot main">
+          <span class="browser"><span></span><span></span><span></span></span>
+          <img src="../../public/projects/screenshots/basic-coffee.png" alt="Projeto Basic Coffee" /><div class="project-label">Basic Coffee<span>Cafeteria</span></div>
+        </article>
+        <article class="shot side">
+          <span class="browser"><span></span><span></span><span></span></span>
+          <img src="../../public/projects/screenshots/s2-saude.png" alt="Projeto S2 Seguros Saúde" /><div class="project-label">S2 Seguros Saúde<span>Seguros e saúde</span></div>
+        </article>
+        <article class="shot back">
+          <span class="browser"><span></span><span></span><span></span></span>
+          <img src="../../public/projects/screenshots/raquel.png" alt="Projeto Raquel Santiago" /><div class="project-label">Raquel Santiago<span>Marca pessoal</span></div>
+        </article>
+      </section>
+
+      <section class="benefits">
+        <div class="benefit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5V8.8L12 4l8 4.8v10.7"/><path d="M8 20v-7h8v7"/></svg>
+          <span><strong>Design com propósito</strong><small>Visual alinhado ao negócio</small></span>
+        </div>
+        <div class="benefit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="14" height="10" rx="1.5"/><path d="M8 19h4M10 15v4"/><rect x="18" y="8" width="3" height="8" rx="1"/></svg>
+          <span><strong>Experiência responsiva</strong><small>Celular e computador</small></span>
+        </div>
+        <div class="benefit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 11.5a8 8 0 0 1-8.5 8L4 21l1.5-5.5A8 8 0 1 1 20 11.5Z"/><path d="M8.5 11.5h7M12 8v7"/></svg>
+          <span><strong>Contato mais acessível</strong><small>Caminhos claros para conversar</small></span>
+        </div>
+      </section>
+
+      <footer>
+        <p class="closing">Seu próximo site começa com uma conversa.</p>
+        <div class="cta">Veja meu portfólio ↗</div>
+        <div class="url">julia-webdesign.vercel.app</div>
+      </footer>
+    </main>
+  </body>
+</html>
+
+
