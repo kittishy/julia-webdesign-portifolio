@@ -1,5 +1,12 @@
 # Decisões
 
+## 2026-09-29 — Projetos recentes no portfólio
+
+- Destacar C&N Mármores e Granitos e Academia Gustavo Pià, ambos publicados e conferidos nos endereços usados pelos cartões.
+- Usar capturas reais da primeira dobra de cada site, mantendo as imagens no próprio repositório do portfólio.
+- Apresentar os cinco trabalhos com uma descrição curta e link direto. Remover o bloco repetido de contexto, escolha e entrega para manter a seção de projetos enxuta mesmo com dois novos trabalhos.
+- Calcular a numeração e a contagem a partir da lista de projetos para evitar dados desatualizados. Preservar as alterações locais ainda não publicadas no checkout original.
+
 ## 2026-09-21 — Retratos do portfólio
 
 - Substituir apenas os retratos da abertura e da seção Sobre por duas imagens geradas com a foto fornecida pela autora como referência de identidade.

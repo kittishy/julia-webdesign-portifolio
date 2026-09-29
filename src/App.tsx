@@ -18,46 +18,47 @@ const emailUrl = "mailto:solara.julia.a@gmail.com?subject=Quero%20conversar%20so
 
 const projects = [
   {
-    index: "01",
+    title: "C&N Mármores e Granitos",
+    eyebrow: "Marmoraria • site institucional",
+    url: "https://cn-marmores.vercel.app/",
+    description: "Projetos reais de mármores e granitos, com uma apresentação direta da marmoraria e um caminho claro para pedir orçamento.",
+    tone: "stone",
+    image: "/projects/screenshots/cn-marmores.png",
+  },
+  {
+    title: "Academia Gustavo Pià",
+    eyebrow: "Centro de lutas • site institucional",
+    url: "https://academia-gustavo-pia.vercel.app/",
+    description: "Modalidades, horários, aula experimental e dúvidas reunidos para quem quer conhecer a academia em Piracicaba.",
+    tone: "fight",
+    image: "/projects/screenshots/gustavo-pia.png",
+  },
+  {
     title: "Basic Coffee",
     eyebrow: "Cafeteria • site institucional",
     url: "https://basic-coffee-shop.vercel.app/br/",
     description:
       "Site para uma cafeteria em Marburg, com cardápio, história e informações de visita reunidos em uma apresentação que valoriza a marca.",
-    scope: ["Cardápio", "Conteúdo", "Localização"],
-    context: "Apresentar a cafeteria e ajudar quem quer escolher o que consumir ou planejar uma visita.",
-    decision: "Cardápio, história e informações de visita têm caminhos próprios, com fotografia e tipografia em destaque.",
-    delivery: "Categorias de produtos, horários, endereço e atalhos para rota e pedido online.",
     tone: "coffee",
     image: "/projects/screenshots/basic-coffee.png",
     fallbackImage: "/projects/basic-coffee.webp",
   },
   {
-    index: "02",
     title: "S2 Seguros Saúde",
     eyebrow: "Saúde • site institucional",
     url: "https://s2-seguros-saude.vercel.app/",
     description:
       "Uma apresentação clara dos planos, com um caminho guiado até a solicitação de cotação pelo WhatsApp.",
-    scope: ["Design responsivo", "Formulário", "WhatsApp"],
-    context: "Organizar diferentes categorias de planos e facilitar uma conversa com as informações iniciais do interessado.",
-    decision: "A seleção de um plano já indica essa opção no formulário. Antes de abrir o WhatsApp, o visitante pode revisar e editar a mensagem.",
-    delivery: "Formulário com validação, prévia da mensagem, perguntas frequentes e página de privacidade.",
     tone: "health",
     image: "/projects/screenshots/s2-saude.png",
     fallbackImage: "/projects/s2-saude.webp",
   },
   {
-    index: "03",
     title: "Raquel Santiago",
     eyebrow: "Fisioterapia • cartão digital",
     url: "https://cartao-raquel.vercel.app/",
     description:
       "A identidade de um cartão profissional transformada em uma experiência digital prática para apresentar serviços e facilitar o contato.",
-    scope: ["Design para celular", "WhatsApp", "Contato na agenda"],
-    context: "Levar a identidade visual de um cartão do Canva para a web, mantendo a personalidade da profissional.",
-    decision: "Preservar fotografia, florais e paleta, adaptando a composição ao celular e ao computador, com ações de contato em destaque.",
-    delivery: "Cartão adaptado a diferentes telas, página de serviços, contato para salvar na agenda e opções de compartilhamento do link.",
     tone: "care",
     image: "/projects/screenshots/raquel.png",
     fallbackImage: "/projects/raquel.jpg",
@@ -98,7 +99,7 @@ function ProjectPreview({
   url: string;
   tone: string;
   image: string;
-  fallbackImage: string;
+  fallbackImage?: string;
 }) {
   return (
     <div className={`project-preview project-preview--${tone}`}>
@@ -117,7 +118,7 @@ function ProjectPreview({
           decoding="async"
           onError={(event) => {
             const img = event.currentTarget;
-            if (img.dataset.fallbackApplied === "true") return;
+            if (!fallbackImage || img.dataset.fallbackApplied === "true") return;
             img.dataset.fallbackApplied = "true";
             img.src = fallbackImage;
           }}
@@ -248,7 +249,7 @@ function App() {
           </div>
 
           <div className="trust-strip" aria-label="Diferenciais">
-            <span><strong>3</strong> projetos selecionados</span>
+            <span><strong>{projects.length}</strong> projetos selecionados</span>
             <span>Design + desenvolvimento</span>
             <span>Feito para cada negócio</span>
             <span>Computador e celular</span>
@@ -261,26 +262,18 @@ function App() {
               <span className="section-kicker">01 / PROJETOS</span>
               <h2>Sites desenvolvidos para <em>diferentes negócios.</em></h2>
             </div>
-            <p>Conheça o contexto, as decisões de design e os recursos de cada projeto. Acesse os sites para explorar a navegação e os detalhes.</p>
+            <p>Uma seleção de trabalhos reais para negócios de áreas diferentes. Abra os sites para ver os detalhes.</p>
           </div>
 
           <div className="projects-list">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <article className="project reveal" key={project.title}>
                 <ProjectPreview title={project.title} url={project.url} tone={project.tone} image={project.image} fallbackImage={project.fallbackImage} />
                 <div className="project-info">
-                  <div className="project-index">{project.index}</div>
+                  <div className="project-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
                   <span className="project-eyebrow">{project.eyebrow}</span>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <div className="tag-list" aria-label={`Escopo de ${project.title}`}>
-                    {project.scope.map((tag) => <span key={tag}>{tag}</span>)}
-                  </div>
-                  <dl className="project-case">
-                    <div><dt>O contexto</dt><dd>{project.context}</dd></div>
-                    <div><dt>A escolha</dt><dd>{project.decision}</dd></div>
-                    <div><dt>A entrega</dt><dd>{project.delivery}</dd></div>
-                  </dl>
                   <a className="text-link" href={project.url} target="_blank" rel="noreferrer">
                     Explorar o projeto <ExternalLink size={16} aria-hidden="true" />
                   </a>

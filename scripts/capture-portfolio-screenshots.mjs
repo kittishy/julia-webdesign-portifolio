@@ -3,6 +3,16 @@ import { mkdir } from "node:fs/promises";
 
 const projects = [
   {
+    name: "C&N Mármores e Granitos",
+    url: "https://cn-marmores.vercel.app/",
+    file: "public/projects/screenshots/cn-marmores.png",
+  },
+  {
+    name: "Academia Gustavo Pià",
+    url: "https://academia-gustavo-pia.vercel.app/",
+    file: "public/projects/screenshots/gustavo-pia.png",
+  },
+  {
     name: "Basic Coffee",
     url: "https://basic-coffee-shop.vercel.app/br/",
     file: "public/projects/screenshots/basic-coffee.png",
