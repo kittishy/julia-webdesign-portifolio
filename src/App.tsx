@@ -3,65 +3,136 @@ import {
   ArrowUpRight,
   Check,
   Code2,
+  GitMerge,
   ExternalLink,
   LayoutTemplate,
   Mail,
   MessageCircle,
   Menu,
+  PanelsTopLeft,
   Search,
   Smartphone,
   X,
 } from "lucide-react";
 
-const whatsappUrl = `https://wa.me/5521967225291?text=${encodeURIComponent("Oi, Julia! Vi seu portfólio e quero conversar sobre um site para o meu negócio.")}`;
-const emailUrl = "mailto:solara.julia.a@gmail.com?subject=Quero%20conversar%20sobre%20um%20site";
+const whatsappUrl = `https://wa.me/5521967225291?text=${encodeURIComponent("Oi, Julia! Vi seu portfólio e quero conversar sobre um projeto para o meu negócio.")}`;
+const emailUrl = "mailto:solara.julia.a@gmail.com?subject=Quero%20conversar%20sobre%20um%20projeto";
 
 const projects = [
   {
+    index: "01",
     title: "C&N Mármores e Granitos",
     eyebrow: "Marmoraria • site institucional",
     url: "https://cn-marmores.vercel.app/",
-    description: "Projetos reais de mármores e granitos, com uma apresentação direta da marmoraria e um caminho claro para pedir orçamento.",
+    description:
+      "Site institucional para uma marmoraria em Americana, com projetos reais em mármores e granitos e acesso direto a orçamento pelo WhatsApp.",
+    scope: ["Galeria de projetos", "Ambientes", "WhatsApp"],
+    context: "Apresentar trabalhos residenciais e comerciais para cozinhas, banheiros e áreas gourmet, além de facilitar o início de um novo orçamento.",
+    decision: "Dar protagonismo às fotografias e organizar a navegação entre projetos, ambientes e informações da empresa.",
+    delivery: "Galeria de projetos com fotos ampliáveis, informações por ambiente e atalhos para iniciar uma conversa pelo WhatsApp.",
     tone: "stone",
     image: "/projects/screenshots/cn-marmores.png",
   },
   {
+    index: "02",
     title: "Academia Gustavo Pià",
     eyebrow: "Centro de lutas • site institucional",
     url: "https://academia-gustavo-pia.vercel.app/",
-    description: "Modalidades, horários, aula experimental e dúvidas reunidos para quem quer conhecer a academia em Piracicaba.",
+    description:
+      "Site institucional que apresenta o Centro de Lutas em Piracicaba, suas modalidades e caminhos para conversar com a equipe.",
+    scope: ["Modalidades", "Galeria", "WhatsApp"],
+    context: "Ajudar quem quer conhecer a academia, consultar as modalidades e entender como dar o primeiro passo para treinar.",
+    decision: "Apresentar modalidades e espaço com fotografias da própria academia, deixando horários, planos e turmas para confirmação direta com a equipe.",
+    delivery: "Página responsiva com modalidades, galeria de fotos, apresentação do professor, dúvidas frequentes e atalhos para o WhatsApp.",
     tone: "fight",
     image: "/projects/screenshots/gustavo-pia.png",
   },
   {
+    index: "03",
+    title: "CLIMABLU Climatização",
+    eyebrow: "Climatização • demonstração institucional",
+    url: "https://climablu-climatizacao.vercel.app/",
+    description:
+      "Demonstração de site institucional que reúne serviços, equipamentos e canais de contato para uma empresa de climatização em Blumenau e região.",
+    scope: ["Serviços", "Equipamentos", "Contato"],
+    context: "Apresentar instalação, manutenção, higienização e soluções de climatização com informações verificadas da empresa.",
+    decision: "Separar serviços, equipamentos, empresa e contato em rotas próprias, sem tratar fotos de ambiente como obras nem marcas como credenciais.",
+    delivery: "Demonstração com cinco rotas principais, catálogo consultivo, imagens autorizadas e configuração não indexável.",
+    tone: "climablu",
+    image: "/projects/screenshots/climablu.png",
+  },
+  {
+    index: "04",
+    title: "Luscar Climatização",
+    eyebrow: "Climatização • redesign em demonstração",
+    url: "https://luscar-climatizacao.vercel.app/",
+    description:
+      "Demonstração de redesign para a Luscar, com conteúdo organizado para os serviços de climatização em Joinville e região.",
+    scope: ["13 rotas", "Conteúdo", "SEO técnico"],
+    context: "Reorganizar o site institucional e preservar rotas e referências de busca importantes da estrutura existente.",
+    decision: "Reaproveitar conteúdos e URLs confirmados, removendo dados de template e separando serviços, trabalhos, guias e contato.",
+    delivery: "Demonstração publicada com 13 rotas e configuração não indexável; a migração para o domínio da Luscar depende de autorização.",
+    tone: "luscar",
+    image: "/projects/screenshots/luscar.png",
+  },
+  {
+    index: "05",
     title: "Basic Coffee",
     eyebrow: "Cafeteria • site institucional",
     url: "https://basic-coffee-shop.vercel.app/br/",
     description:
       "Site para uma cafeteria em Marburg, com cardápio, história e informações de visita reunidos em uma apresentação que valoriza a marca.",
+    scope: ["Cardápio", "Conteúdo", "Localização"],
+    context: "Apresentar a cafeteria e ajudar quem quer escolher o que consumir ou planejar uma visita.",
+    decision: "Cardápio, história e informações de visita têm caminhos próprios, com fotografia e tipografia em destaque.",
+    delivery: "Categorias de produtos, horários, endereço e atalhos para rota e pedido online.",
     tone: "coffee",
     image: "/projects/screenshots/basic-coffee.png",
     fallbackImage: "/projects/basic-coffee.webp",
   },
   {
+    index: "06",
     title: "S2 Seguros Saúde",
     eyebrow: "Saúde • site institucional",
     url: "https://s2-seguros-saude.vercel.app/",
     description:
       "Uma apresentação clara dos planos, com um caminho guiado até a solicitação de cotação pelo WhatsApp.",
+    scope: ["Design responsivo", "Formulário", "WhatsApp"],
+    context: "Organizar diferentes categorias de planos e facilitar uma conversa com as informações iniciais do interessado.",
+    decision: "A seleção de um plano já indica essa opção no formulário. Antes de abrir o WhatsApp, o visitante pode revisar e editar a mensagem.",
+    delivery: "Formulário com validação, prévia da mensagem, perguntas frequentes e página de privacidade.",
     tone: "health",
     image: "/projects/screenshots/s2-saude.png",
     fallbackImage: "/projects/s2-saude.webp",
   },
   {
+    index: "07",
     title: "Raquel Santiago",
     eyebrow: "Fisioterapia • cartão digital",
     url: "https://cartao-raquel.vercel.app/",
     description:
       "A identidade de um cartão profissional transformada em uma experiência digital prática para apresentar serviços e facilitar o contato.",
+    scope: ["Design para celular", "WhatsApp", "Contato na agenda"],
+    context: "Levar a identidade visual de um cartão do Canva para a web, mantendo a personalidade da profissional.",
+    decision: "Preservar fotografia, florais e paleta, adaptando a composição ao celular e ao computador, com ações de contato em destaque.",
+    delivery: "Cartão adaptado a diferentes telas, página de serviços, contato para salvar na agenda e opções de compartilhamento do link.",
     tone: "care",
     image: "/projects/screenshots/raquel.png",
     fallbackImage: "/projects/raquel.jpg",
+  },
+  {
+    index: "08",
+    title: "Deskflow CRM",
+    eyebrow: "CRM • em desenvolvimento",
+    url: "https://deskflow-crm.vercel.app/",
+    description:
+      "CRM em desenvolvimento para organizar prospecção, conversas e tarefas do processo comercial em um só fluxo.",
+    scope: ["Contatos e funis", "Atendimento", "Em desenvolvimento"],
+    context: "Concentrar contatos, etapas do funil e próximos passos usados na prospecção e no atendimento.",
+    decision: "Priorizar um fluxo claro para acompanhar contatos, conversas e próximos passos, evoluindo os recursos em etapas.",
+    delivery: "Ambiente com acesso por login; WhatsApp e outras integrações dependem de configuração, e uma nova fila de envio segue em desenvolvimento.",
+    tone: "deskflow",
+    image: "/projects/screenshots/deskflow-crm-ver-tudo.png",
   },
 ];
 
@@ -86,6 +157,16 @@ const services = [
     title: "SEO na estrutura do site",
     text: "Títulos, descrições e conteúdo organizados para ajudar os mecanismos de busca a compreender suas páginas e seus serviços.",
   },
+  {
+    icon: PanelsTopLeft,
+    title: "CRM e sistemas",
+    text: "Ferramentas e fluxos digitais para organizar informações, acompanhar etapas e facilitar o trabalho da sua equipe.",
+  },
+  {
+    icon: GitMerge,
+    title: "Automações e integrações",
+    text: "Conexões entre ferramentas e rotinas automatizadas para reduzir tarefas repetitivas e manter as informações organizadas.",
+  },
 ];
 
 function ProjectPreview({
@@ -103,17 +184,11 @@ function ProjectPreview({
 }) {
   return (
     <div className={`project-preview project-preview--${tone}`}>
-      <div className="browser-bar" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-        <div className="browser-address">{new URL(url).hostname}</div>
-      </div>
       <div className="preview-canvas">
         <img
           className="project-shot"
           src={image}
-          alt={`Captura real do site ${title}`}
+          alt={title === "Deskflow CRM" ? "Visão geral de CRM do Deskflow CRM" : `Captura real do site ${title}`}
           loading="lazy"
           decoding="async"
           onError={(event) => {
@@ -123,7 +198,6 @@ function ProjectPreview({
             img.src = fallbackImage;
           }}
         />
-        <div className="preview-shade" aria-hidden="true" />
         <a
           href={url}
           target="_blank"
@@ -140,29 +214,6 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const items = Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      items.forEach((item) => item.classList.add("is-visible"));
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.14, rootMargin: "0px 0px -6% 0px" },
-    );
-
-    items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setMenuOpen(false);
     };
@@ -172,6 +223,7 @@ function App() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Julia Freitas — início">
           <span className="brand-mark">J.</span>
@@ -197,12 +249,13 @@ function App() {
           onClick={() => setMenuOpen((value) => !value)}
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
 
         {menuOpen && (
-          <nav className="mobile-nav" aria-label="Navegação mobile">
+          <nav id="mobile-navigation" className="mobile-nav" aria-label="Navegação mobile">
             {[
               ["Projetos", "#projetos"],
               ["Serviços", "#servicos"],
@@ -218,16 +271,15 @@ function App() {
         )}
       </header>
 
-      <main>
+      <main id="conteudo" tabIndex={-1}>
         <section className="hero" id="inicio">
           <div className="hero-grid">
-            <div className="hero-copy reveal is-visible">
-              <div className="eyebrow"><span /> WEB DESIGN · RIO DE JANEIRO</div>
+            <div className="hero-copy">
               <h1>
-                Criação de sites profissionais <em>para o seu negócio.</em>
+                Criação de sites profissionais. <em>Com a sua identidade.</em>
               </h1>
               <p className="hero-lead">
-                Transformo seus serviços em uma apresentação clara, com identidade visual, navegação simples e contato acessível. Sites institucionais e landing pages feitos para funcionar no celular e no computador.
+                Seu negócio tem uma história, um jeito e algo a oferecer. Eu organizo tudo isso em um site com design próprio, leitura clara e caminhos simples para entrar em contato.
               </p>
               <div className="hero-actions">
                 <a className="button button--primary" href={whatsappUrl} target="_blank" rel="noreferrer">
@@ -240,7 +292,7 @@ function App() {
               </div>
             </div>
 
-            <figure className="hero-visual reveal is-visible">
+            <figure className="hero-visual">
               <div className="portrait-frame">
                 <img src="/julia-original.png" alt="Julia Freitas, web designer e desenvolvedora de sites" width="941" height="1672" loading="eager" decoding="async" />
               </div>
@@ -248,34 +300,41 @@ function App() {
             </figure>
           </div>
 
-          <div className="trust-strip" aria-label="Diferenciais">
-            <span><strong>{projects.length}</strong> projetos selecionados</span>
-            <span>Design + desenvolvimento</span>
-            <span>Feito para cada negócio</span>
-            <span>Computador e celular</span>
+          <div className="work-intro">
+            <p>Da identidade visual ao site no ar.<br /><span>Conheça o trabalho nos próprios projetos.</span></p>
+            <a href="#projetos">Explorar os {projects.length} projetos <ArrowUpRight size={20} aria-hidden="true" /></a>
           </div>
         </section>
 
         <section className="section projects-section" id="projetos">
-          <div className="section-heading reveal">
+          <div className="section-heading">
             <div>
-              <span className="section-kicker">01 / PROJETOS</span>
-              <h2>Sites desenvolvidos para <em>diferentes negócios.</em></h2>
+              <h2>Projetos com <em>identidade própria.</em></h2>
             </div>
-            <p>Uma seleção de trabalhos reais para negócios de áreas diferentes. Abra os sites para ver os detalhes.</p>
+            <p>Conheça o contexto, as decisões de design e os recursos de cada projeto. Acesse os sites para explorar a navegação e os detalhes.</p>
           </div>
 
           <div className="projects-list">
-            {projects.map((project, index) => (
-              <article className="project reveal" key={project.title}>
+            {projects.map((project) => (
+              <article className="project" key={project.title}>
                 <ProjectPreview title={project.title} url={project.url} tone={project.tone} image={project.image} fallbackImage={project.fallbackImage} />
                 <div className="project-info">
-                  <div className="project-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</div>
-                  <span className="project-eyebrow">{project.eyebrow}</span>
                   <h3>{project.title}</h3>
+                  <span className="project-kind">{project.eyebrow}</span>
                   <p>{project.description}</p>
+                  <div className="tag-list" aria-label={`Escopo de ${project.title}`}>
+                    {project.scope.map((tag) => <span key={tag}>{tag}</span>)}
+                  </div>
+                  <details className="case-details">
+                    <summary>Contexto, escolhas e entrega <span className="sr-only">de {project.title}</span></summary>
+                    <dl className="project-case">
+                    <div><dt>O contexto</dt><dd>{project.context}</dd></div>
+                    <div><dt>A escolha</dt><dd>{project.decision}</dd></div>
+                    <div><dt>A entrega</dt><dd>{project.delivery}</dd></div>
+                    </dl>
+                  </details>
                   <a className="text-link" href={project.url} target="_blank" rel="noreferrer">
-                    Explorar o projeto <ExternalLink size={16} aria-hidden="true" />
+                    Visitar {project.title} <ExternalLink size={16} aria-hidden="true" />
                   </a>
                 </div>
               </article>
@@ -284,57 +343,56 @@ function App() {
         </section>
 
         <section className="section services-section" id="servicos">
-          <div className="section-heading reveal">
+          <div className="section-heading">
             <div>
-              <span className="section-kicker">02 / O QUE EU FAÇO</span>
-              <h2>Design e desenvolvimento <em>para a sua presença digital.</em></h2>
+              <h2>O que seu próximo <em>site precisa fazer?</em></h2>
             </div>
-            <p>Um novo site, uma página para divulgar um serviço ou a reformulação do que já existe. O ponto de partida é o que sua empresa precisa comunicar.</p>
+            <p>Apresentar sua empresa, dar destaque a um serviço ou reorganizar o que já existe. O objetivo orienta o conteúdo, o design e os recursos.</p>
           </div>
 
           <div className="services-grid">
-            {services.map(({ icon: Icon, title, text }, index) => (
-              <article className="service-card reveal" key={title}>
-                <span className="service-number">0{index + 1}</span>
+            {services.slice(0, 4).map(({ icon: Icon, title, text }) => (
+              <article className="service-card" key={title}>
                 <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
                 <h3>{title}</h3>
                 <p>{text}</p>
               </article>
             ))}
           </div>
+          <div className="systems-service">
+            <div><h3>Além do site: CRM e automações.</h3><p>Também desenvolvo sistemas para organizar contatos e tarefas, além de integrações para conectar ferramentas e reduzir rotinas repetitivas. O escopo é definido a partir do seu processo de trabalho.</p></div>
+            <a className="text-link" href="#contato">Conversar sobre uma solução <ArrowUpRight size={18} aria-hidden="true" /></a>
+          </div>
         </section>
 
         <section className="section process-section" id="processo">
-          <div className="process-panel reveal">
+          <div className="process-panel">
             <div className="process-intro">
-              <span className="section-kicker">03 / PROCESSO</span>
-              <h2>Do primeiro contato <em>à publicação.</em></h2>
-              <p>Você apresenta seu negócio e seus objetivos. A partir dessa conversa, organizamos o conteúdo, definimos o escopo e combinamos as etapas do projeto.</p>
+              <h2>Do primeiro contato <em>à entrega.</em></h2>
+              <p>Você apresenta seu negócio e seus objetivos. A partir dessa conversa, definimos a solução, o escopo e as etapas do projeto.</p>
             </div>
             <ol className="process-list">
-              <li><span>01</span><div><strong>Entendimento do negócio</strong><p>Conversamos sobre seus serviços, seu público e o que o site precisa facilitar para o cliente.</p></div></li>
-              <li><span>02</span><div><strong>Estrutura e direção visual</strong><p>Definimos as páginas, a organização do conteúdo e as referências visuais que vão orientar o trabalho.</p></div></li>
-              <li><span>03</span><div><strong>Design e desenvolvimento</strong><p>Construo a interface e adapto a navegação às diferentes telas, com atenção à leitura e aos caminhos de contato.</p></div></li>
-              <li><span>04</span><div><strong>Revisão e publicação</strong><p>Confiro conteúdo, links e funcionamento antes de publicar a versão final, conforme o escopo combinado.</p></div></li>
+              <li><span>01</span><div><strong>Entendimento do negócio</strong><p>Conversamos sobre seus serviços, seu público ou sua rotina de trabalho para identificar o que a solução precisa facilitar.</p></div></li>
+              <li><span>02</span><div><strong>Estrutura e direção</strong><p>Definimos o conteúdo, as etapas e os recursos necessários. Para sites, alinhamos também as referências visuais.</p></div></li>
+              <li><span>03</span><div><strong>Design e desenvolvimento</strong><p>Construo a solução com atenção à clareza, ao funcionamento e ao uso em diferentes telas quando aplicável.</p></div></li>
+              <li><span>04</span><div><strong>Revisão e entrega</strong><p>Confiro o conteúdo e o funcionamento antes de entregar ou publicar a solução, conforme o escopo combinado.</p></div></li>
             </ol>
           </div>
         </section>
 
         <section className="section about-section" id="sobre">
-          <div className="about-grid reveal">
+          <div className="about-grid">
             <div className="about-note">
-              <span className="section-kicker">DESIGN + CÓDIGO</span>
               <p>Clareza para apresentar.<br /><em>Cuidado para desenvolver.</em></p>
               <span className="about-signature">Julia Freitas<span>Web design · Rio de Janeiro</span></span>
             </div>
             <div className="about-copy">
-              <span className="section-kicker">04 / SOBRE</span>
               <h2>Sou <em>Julia Freitas.</em></h2>
               <p>
-                Sou web designer e desenvolvedora de sites no Rio de Janeiro, com atendimento remoto em todo o Brasil. Meu trabalho reúne organização de conteúdo, design de interfaces e desenvolvimento para apresentar cada negócio com clareza.
+                Sou web designer e desenvolvedora no Rio de Janeiro, com atendimento remoto em todo o Brasil. Meu trabalho reúne organização de conteúdo, design de interfaces e desenvolvimento de sites, sistemas e automações para cada negócio.
               </p>
               <p>
-                Uma cafeteria precisa facilitar a consulta ao cardápio. Uma profissional de saúde precisa apresentar seus serviços e tornar o contato acessível. É a partir dessas necessidades que defino a estrutura e a linguagem de cada projeto.
+                Uma cafeteria precisa facilitar a consulta ao cardápio. Uma profissional de saúde precisa apresentar seus serviços e tornar o contato acessível. Uma equipe pode precisar organizar clientes e tarefas em um só fluxo. É a partir dessas necessidades que defino cada projeto.
               </p>
               <div className="about-points">
                 <span><Check size={15} aria-hidden="true" /> Design e desenvolvimento</span>
@@ -347,12 +405,11 @@ function App() {
 
         <section className="section faq-section" id="faq">
           <div className="faq-grid">
-            <div className="faq-intro reveal">
-              <span className="section-kicker">05 / DÚVIDAS</span>
+            <div className="faq-intro">
               <h2>Dúvidas <em>frequentes.</em></h2>
               <p>Informações para planejar a criação ou a reformulação do seu site.</p>
             </div>
-            <div className="faq-list reveal">
+            <div className="faq-list">
               <details>
                 <summary>Minha empresa já tem Instagram. Por que criar um site?</summary>
                 <p>O site reúne seus serviços, informações e canais de contato em um endereço próprio. Ele complementa as redes sociais e oferece uma apresentação organizada para quem quer conhecer sua empresa antes de conversar.</p>
@@ -373,16 +430,23 @@ function App() {
                 <summary>Qual é a diferença entre site institucional e landing page?</summary>
                 <p>O site institucional apresenta a empresa e seus serviços de forma mais ampla. A landing page concentra a mensagem em uma oferta ou ação, como solicitar um orçamento. A escolha depende do objetivo e do conteúdo do projeto.</p>
               </details>
+              <details>
+                <summary>Como funcionam domínio e hospedagem?</summary>
+                <p>Domínio é o endereço do site; hospedagem é o serviço que o mantém disponível. A escolha, a contratação e os custos são definidos na proposta de acordo com o projeto.</p>
+              </details>
+              <details>
+                <summary>Posso atualizar o site depois da publicação?</summary>
+                <p>Sim. Podemos definir no escopo se você precisa editar o conteúdo por conta própria ou solicitar alterações depois da entrega. A solução depende de como o site será usado.</p>
+              </details>
             </div>
           </div>
         </section>
 
         <section className="section contact-section" id="contato">
-          <div className="contact-card reveal">
-            <span className="section-kicker">06 / SEU PROJETO</span>
-            <h2>Vamos conversar <em>sobre seu site?</em></h2>
+          <div className="contact-card">
+            <h2>Vamos conversar <em>sobre seu projeto?</em></h2>
             <p>
-              Conte o que sua empresa faz e se você precisa criar um site ou reformular o atual. Com essas informações, podemos definir o escopo e preparar uma proposta para o seu projeto.
+              Conte o que sua empresa faz e se você precisa de um site, CRM, sistema ou automação. Com essas informações, podemos definir o escopo e preparar uma proposta para o seu projeto.
             </p>
             <div className="contact-actions">
               <a className="button button--primary button--large" href={whatsappUrl} target="_blank" rel="noreferrer">
@@ -398,7 +462,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-brand">
           <span className="brand-mark">J.</span>
-          <div><strong>Julia Freitas</strong><small>Criação de sites no Rio de Janeiro · Atendimento em todo o Brasil</small></div>
+          <div><strong>Julia Freitas</strong><small>Sites e soluções digitais no Rio de Janeiro · Atendimento em todo o Brasil</small></div>
         </div>
         <div className="footer-links">
           <a href="#inicio">Topo</a>

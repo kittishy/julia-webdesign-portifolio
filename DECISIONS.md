@@ -1,11 +1,24 @@
 # Decisões
 
-## 2026-09-29 — Projetos recentes no portfólio
+## 2026-10-08 — Demonstrações CLIMABLU/Luscar e CRM em desenvolvimento
 
-- Destacar C&N Mármores e Granitos e Academia Gustavo Pià, ambos publicados e conferidos nos endereços usados pelos cartões.
-- Usar capturas reais da primeira dobra de cada site, mantendo as imagens no próprio repositório do portfólio.
-- Apresentar os cinco trabalhos com uma descrição curta e link direto. Remover o bloco repetido de contexto, escolha e entrega para manter a seção de projetos enxuta mesmo com dois novos trabalhos.
-- Calcular a numeração e a contagem a partir da lista de projetos para evitar dados desatualizados. Preservar as alterações locais ainda não publicadas no checkout original.
+- Incluir CLIMABLU e Luscar como demonstrações, deixando claro que os endereços publicados são previews não indexáveis e que o corte para os domínios oficiais não foi feito.
+- Incluir Deskflow CRM como projeto em desenvolvimento, descrevendo os fluxos comerciais em evolução sem afirmar que integrações ou a nova fila de envio estejam concluídas.
+- Usar uma captura real da tela “Ver tudo em CRM”, sem conversas ou contatos individuais visíveis; o endereço público continua exigindo login.
+
+## 2026-10-08 — Inclusão de C&N e Academia Gustavo Pià
+
+- Acrescentar os dois sites publicados à lista de projetos, com capturas reais da abertura e descrições no formato de contexto, escolha e entrega já usado pelo portfólio.
+- Descrever apenas conteúdo e recursos presentes nos sites. Na Academia Gustavo Pià, horários, planos e turmas ficam para confirmação com a equipe; não prometer aula experimental.
+- Manter a identidade visual do portfólio e usar as cores dos próprios projetos apenas como fundo das respectivas prévias.
+- Exibir a quantidade e numerar os projetos a partir da lista atual para evitar contagens desatualizadas.
+
+## 2026-09-23 — Ampliação dos serviços
+
+- Usar o portfólio de JR Web Design como referência de conteúdo para ampliar a oferta, mantendo a identidade visual de Julia Freitas.
+- Incluir CRM e sistemas e automações e integrações na seção de serviços e nos metadados. A autora informou que não oferece tráfego pago; não listar esse serviço.
+- Preservar os projetos próprios já apresentados, sem incorporar trabalhos do portfólio de referência nem prometer resultados sem evidência.
+- Acrescentar dúvidas sobre domínio, hospedagem e atualização do site, com definições de escopo e custos feitas na proposta.
 
 ## 2026-09-21 — Retratos do portfólio
 
@@ -40,3 +53,14 @@
 - Usar Person, Service e WebSite no JSON-LD para representar a profissional e seus serviços, sem inventar endereço, avaliação, preço ou credenciais.
 - Manter URL canônica e sitemap existentes; não criar páginas locais artificiais ou alterar domínio sem pedido.
 - Prévia social renovada com nome e copy atuais. Sem publicação online ou verificação de indexação nesta etapa.
+
+## 2026-10-08 — Refinamento visual e SEO
+
+- Preservar carvão, coral, Space Grotesk/Inter e fotografia original; dar prioridade aos sites, com CRM e automações como complemento, conforme escolha da autora.
+- Apresentar oito projetos em grade com detalhes nativos expansíveis; preservar descrições completas, demonstrações e estado de desenvolvimento do Deskflow.
+- Remover números decorativos, barras artificiais de navegador, efeitos repetidos de entrada e caixa equivalente para cada serviço. Destacar os quatro serviços de sites e resumir sistemas em uma oferta complementar.
+- Reforçar autoria e valor com trabalho navegável e decisões reais, sem inventar resultados, depoimentos ou credenciais.
+- Pesquisa Keyword Tool em português: termos profissionais e locais de criação de sites. Consulta global, sem métricas disponíveis; não inferir demanda ou ranking. Base técnica: https://developers.google.com/search/docs/fundamentals/seo-starter-guide.
+- Pré-renderizar o mesmo App usado pelo cliente para incluir conteúdo no HTML e hidratar a versão publicada; manter domínio canônico, robots e sitemap.
+- MagicPath: projeto privado 458958800427294720, componente 458958862284914688, com os mesmos arquivos e ativos reais. Website Builder não tem ferramentas acessíveis nesta sessão.
+- Impeccable: avisos apenas para as fontes atuais; exceção intencional para preservar a identidade. Sem publicação nesta etapa.
