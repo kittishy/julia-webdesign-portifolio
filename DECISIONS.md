@@ -1,5 +1,12 @@
 # Decisões
 
+## 2026-10-09 — Inclusão do XandeTEC Soluções
+
+- Acrescentar o site institucional da XandeTEC Soluções à lista de projetos do portfólio (posição 01), mantendo a ordenação cronológica decrescente dos trabalhos.
+- Utilizar captura real em alta definição da abertura (1440 × 900 px, proporção 16:10 padrão) em `public/projects/screenshots/xandetec.png`.
+- Descrever o projeto estritamente a partir do conteúdo verificado: climatização, segurança eletrônica, elétrica dedicada, portão eletrônico, PMOC, laudos e treinamentos técnicos em Jaraguá do Sul e região.
+- Atualizar a contagem total para 9 projetos no portfólio e renumeração sequencial contínua.
+
 ## 2026-10-08 — Demonstrações CLIMABLU/Luscar e CRM em desenvolvimento
 
 - Incluir CLIMABLU e Luscar como demonstrações, deixando claro que os endereços publicados são previews não indexáveis e que o corte para os domínios oficiais não foi feito.

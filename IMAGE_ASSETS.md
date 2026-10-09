@@ -48,4 +48,4 @@ Use case: identity-preserve. Generate ONE high-resolution vertical 3:4 editorial
 ## Prévia dos projetos
 - Não usar screenshots fictícios nem imagens de IA.
 - O portfólio usa capturas reais locais dos três sites, com carregamento sob demanda e link para abrir cada projeto; não incorpora iframes.
-- Links externos sempre apontam para os projetos publicados: Basic Coffee, S2 Seguros Saúde e Raquel Santiago.
+- Links externos sempre apontam para os projetos publicados: Basic Coffee, S2 Seguros Saúde e Raquel Santiago. A captura de XandeTEC está em `/public/projects/screenshots/xandetec.png` (1440 × 900 px).

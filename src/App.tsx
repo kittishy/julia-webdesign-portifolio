@@ -21,6 +21,23 @@ const emailUrl = "mailto:solara.julia.a@gmail.com?subject=Quero%20conversar%20so
 const projects = [
   {
     index: "01",
+    title: "XandeTEC Soluções",
+    eyebrow: "Soluções técnicas • site institucional",
+    url: "https://xandetec-solucoes.vercel.app/",
+    description:
+      "Site institucional para a XandeTEC em Jaraguá do Sul e região, reunindo serviços de climatização, segurança eletrônica, elétrica, documentação técnica e contato direto pelo WhatsApp.",
+    scope: ["Serviços técnicos", "Trabalho em campo", "WhatsApp"],
+    context:
+      "Apresentar a atuação integrada da empresa — climatização, segurança eletrônica, elétrica dedicada e PMOC — com clareza para clientes residenciais e corporativos.",
+    decision:
+      "Organizar os serviços com atalhos de orçamento para cada frente técnica, valorizar fotos reais da frota e da equipe em campo e manter a navegação direta.",
+    delivery:
+      "Página responsiva com catálogo de serviços, registros de atendimentos em campo, marcas atendidas, dúvidas frequentes e ações direcionadas para o WhatsApp.",
+    tone: "xandetec",
+    image: "/projects/screenshots/xandetec.png",
+  },
+  {
+    index: "02",
     title: "C&N Mármores e Granitos",
     eyebrow: "Marmoraria • site institucional",
     url: "https://cn-marmores.vercel.app/",
@@ -34,7 +51,7 @@ const projects = [
     image: "/projects/screenshots/cn-marmores.png",
   },
   {
-    index: "02",
+    index: "03",
     title: "Academia Gustavo Pià",
     eyebrow: "Centro de lutas • site institucional",
     url: "https://academia-gustavo-pia.vercel.app/",
@@ -48,7 +65,7 @@ const projects = [
     image: "/projects/screenshots/gustavo-pia.png",
   },
   {
-    index: "03",
+    index: "04",
     title: "CLIMABLU Climatização",
     eyebrow: "Climatização • demonstração institucional",
     url: "https://climablu-climatizacao.vercel.app/",
@@ -62,7 +79,7 @@ const projects = [
     image: "/projects/screenshots/climablu.png",
   },
   {
-    index: "04",
+    index: "05",
     title: "Luscar Climatização",
     eyebrow: "Climatização • redesign em demonstração",
     url: "https://luscar-climatizacao.vercel.app/",
@@ -76,7 +93,7 @@ const projects = [
     image: "/projects/screenshots/luscar.png",
   },
   {
-    index: "05",
+    index: "06",
     title: "Basic Coffee",
     eyebrow: "Cafeteria • site institucional",
     url: "https://basic-coffee-shop.vercel.app/br/",
@@ -91,7 +108,7 @@ const projects = [
     fallbackImage: "/projects/basic-coffee.webp",
   },
   {
-    index: "06",
+    index: "07",
     title: "S2 Seguros Saúde",
     eyebrow: "Saúde • site institucional",
     url: "https://s2-seguros-saude.vercel.app/",
@@ -106,7 +123,7 @@ const projects = [
     fallbackImage: "/projects/s2-saude.webp",
   },
   {
-    index: "07",
+    index: "08",
     title: "Raquel Santiago",
     eyebrow: "Fisioterapia • cartão digital",
     url: "https://cartao-raquel.vercel.app/",
@@ -121,7 +138,7 @@ const projects = [
     fallbackImage: "/projects/raquel.jpg",
   },
   {
-    index: "08",
+    index: "09",
     title: "Deskflow CRM",
     eyebrow: "CRM • em desenvolvimento",
     url: "https://deskflow-crm.vercel.app/",
