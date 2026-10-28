@@ -79,7 +79,7 @@ p { text-wrap: pretty; }
 .browser-bar { display: none; }
 .preview-canvas { position: relative; aspect-ratio: 16/10; background: var(--surface); }
 .project-preview--deskflow .preview-canvas { aspect-ratio: 1920/991; }
-.project-shot { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: top center; }
+.project-shot { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: contain; object-position: top center; }
 .preview-shade { display: none; }
 .preview-hit { position: absolute; inset: 0; }
 .preview-hit:focus-visible { outline-offset: -5px; border-radius: var(--radius); }
