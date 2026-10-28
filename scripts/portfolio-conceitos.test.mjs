@@ -11,6 +11,10 @@ test('publica o projeto conceitual com link e imagem próprios', async () => {
   assert.ok(html.includes('Prisma Vidros'), 'Prisma deve aparecer no portfólio');
   assert.ok(html.includes('https://julia-conceitos.vercel.app/prisma-vidros/'), 'Prisma deve apontar para a nova versão');
   await access(new URL('../dist/projects/screenshots/prisma-vidros.jpg', import.meta.url));
+  for (const slug of ['auria-superficies','orbe-pedras','lumina-vidros','aurum-auto','nexo-detail','chaveiro-elo','livre-desentupidora','canal-desentupidora']) {
+    assert.ok(html.includes('https://julia-conceitos.vercel.app/'+slug+'/'), slug);
+    await access(new URL('../dist/projects/screenshots/'+slug+'.jpg', import.meta.url));
+  }
   assert.ok(html.includes('Fluxo Desentupidora'));
   assert.ok(html.includes('https://julia-conceitos.vercel.app/fluxo-desentupidora/'));
   await access(new URL('../dist/projects/screenshots/fluxo-desentupidora.jpg', import.meta.url));

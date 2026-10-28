@@ -190,6 +190,142 @@ const projects = [
     tone: "fight",
     image: "/projects/screenshots/fluxo-desentupidora.jpg",
   },
+  {
+    "index": "13",
+    "title": "Áuria Superfícies",
+    "eyebrow": "Marmoraria • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/auria-superficies/",
+    "description": "Uma apresentação de superfícies em pedra com composição editorial, imagens de ambientes e navegação entre aplicações. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Valorizar materiais e possibilidades de uso em espaços residenciais.",
+    "decision": "Combinar contrastes escuros, tipografia ampla e fotografias ilustrativas de arquitetura.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "stone",
+    "image": "/projects/screenshots/auria-superficies.jpg"
+},
+  {
+    "index": "14",
+    "title": "Orbe Pedras",
+    "eyebrow": "Marmoraria • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/orbe-pedras/",
+    "description": "Um site para uma marca fictícia de mármores e granitos, com foco nas relações entre materiais, acabamentos e ambientes. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Organizar a apresentação de materiais e aplicações em uma experiência visual clara.",
+    "decision": "Usar tons naturais, tipografia com serifa e uma hierarquia que aproxima a pedra da arquitetura.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "stone",
+    "image": "/projects/screenshots/orbe-pedras.jpg"
+},
+  {
+    "index": "15",
+    "title": "Lúmina Vidros",
+    "eyebrow": "Vidros e alumínio • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/lumina-vidros/",
+    "description": "Uma apresentação de soluções em vidro e alumínio, com navegação entre serviços e referências de aplicação. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Reunir diferentes possibilidades de uso do vidro em uma página objetiva.",
+    "decision": "Equilibrar uma identidade escura com detalhes em laranja e fotografias ilustrativas de ambientes.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "stone",
+    "image": "/projects/screenshots/lumina-vidros.jpg"
+},
+  {
+    "index": "16",
+    "title": "Aurum Auto",
+    "eyebrow": "Estética automotiva • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/aurum-auto/",
+    "description": "Site conceitual de estética automotiva com apresentação de serviços, navegação por seções e galeria de referências visuais. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Dar clareza aos cuidados automotivos em uma presença digital com acabamento visual.",
+    "decision": "Combinar azul escuro, amarelo e fotografias ilustrativas de veículos com uma navegação direta.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "fight",
+    "image": "/projects/screenshots/aurum-auto.jpg"
+},
+  {
+    "index": "17",
+    "title": "Nexo Detail",
+    "eyebrow": "Detalhamento automotivo • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/nexo-detail/",
+    "description": "Uma apresentação de detalhamento automotivo com identidade escura, referências de veículos e organização dos serviços. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Apresentar possibilidades de cuidado com pintura e interior de veículos.",
+    "decision": "Destacar fotografia e títulos amplos, com uma paleta sóbria e detalhes dourados.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "fight",
+    "image": "/projects/screenshots/nexo-detail.jpg"
+},
+  {
+    "index": "18",
+    "title": "Chaveiro Elo",
+    "eyebrow": "Chaveiro • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/chaveiro-elo/",
+    "description": "Site conceitual com páginas dedicadas a serviços automotivos, residenciais e cópias de chaves. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Organizar serviços técnicos em rotas próprias para facilitar a consulta.",
+    "decision": "Manter navegação direta, identidade amarela e preta e conteúdo distribuído por necessidade.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "stone",
+    "image": "/projects/screenshots/chaveiro-elo.jpg"
+},
+  {
+    "index": "19",
+    "title": "Desentupidora Livre",
+    "eyebrow": "Serviços residenciais • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/livre-desentupidora/",
+    "description": "Página conceitual de serviços hidráulicos com identidade azul e dourada e uma apresentação visual direta. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Facilitar a compreensão de diferentes tipos de serviço em uma página.",
+    "decision": "Usar contraste, títulos objetivos e ilustrações para conduzir a leitura até os serviços.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "fight",
+    "image": "/projects/screenshots/livre-desentupidora.jpg"
+},
+  {
+    "index": "20",
+    "title": "Desentupidora Canal",
+    "eyebrow": "Serviços residenciais • projeto conceitual",
+    "url": "https://julia-conceitos.vercel.app/canal-desentupidora/",
+    "description": "Um site conceitual de desentupimento com serviços organizados e ilustrações hidráulicas próprias. Marca fictícia criada para o portfólio.",
+    "scope": [
+        "Identidade visual",
+        "Conteúdo",
+        "Design responsivo"
+    ],
+    "context": "Explorar uma apresentação simples para serviços residenciais e comerciais.",
+    "decision": "Combinar azul profundo e verde-lima com ilustrações e navegação por seções.",
+    "delivery": "Projeto navegável e responsivo, com imagens ilustrativas e contato para conversar sobre a criação de um site semelhante.",
+    "tone": "fight",
+    "image": "/projects/screenshots/canal-desentupidora.jpg"
+},
 ];
 
 const services = [
